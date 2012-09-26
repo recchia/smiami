@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block body %}
+{% block header %}
 <div id="header">
     <img src="{{ asset('images/bocai_11.png') }}" />  
     <img src="{{ asset('images/mysexymiami5.png') }}" />
@@ -13,11 +14,12 @@
 </div>
 <div id="slogan">
     <p>
-    <a href=""><div style="position:absolute; top:16%; left:3%; ">PONER UN AD</div></a>    
+    <a href="{{ path("reglas_anuncio") }}"><div style="position:absolute; top:16%; left:3%; ">PONER UN AD</div></a>    
     SOY TU SECRETO ONLINE...
     <a href="http://mibellivenezolana.blogspot.com/" target="_blank"><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" height="80px" width="110px" /></div></a>
     </p>
 </div>
+{% endblock %}
 {% block menu %}
 <div id="enlaces">
             <li><a href="#">MIAMI</a></li>
