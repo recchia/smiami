@@ -1,0 +1,19 @@
+/* 
+    Document   : forms
+    Created on : 24/09/2012, 08:17:07 PM
+    Author     : piero
+    Description:
+        Purpose of the stylesheet follows.
+*/
+#fos_bundle {
+    margin-top: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+#fos_bundle label {
+    display: inline-block;
+    width: 12em;
+}
+

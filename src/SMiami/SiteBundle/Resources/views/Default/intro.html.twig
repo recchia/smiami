@@ -1,0 +1,33 @@
+{% extends "::layout.html.twig" %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+<div id="reglas">
+    <p class="intro cursiva">
+<span class="negrita resaltado2">REGLAS, NORMAS Y USO PARA PODER ENTRAR A</span> &nbsp; <span class="resaltado">MYSEXYMIAMI.COM</span>
+<br/><br/>
+<span class="negrita resaltado2">OBLIGATORIO</span>
+<br/><br/>
+<span class="negrita">El directorio Online en el Sur de la Florida más completo en entretenimiento para adultos</span>
+<br/>
+<span class="negrita resaltado2">EXCLUSIVAMENTE PARA ADULTOS</span>
+<br/>
+<span class="negrita">POR LO TANTO DEBES CUMPLIR CON LAS SIGUIENTES NORMAS PARA VISITAR NUESTRA PÁGINA</span>
+<br/><br/> 
+<span class="negrita resaltado2">Si eres es menor de 18 años, sin excepción, debes salir de la página,</span> &nbsp; <span class="resaltado">MYSEXYMIAMI.COM</span>
+<br/>
+<span class="negrita resaltado2">haciendo click en el siguiente link:</span>
+</p><br/>
+
+<table align="center">
+    <tr>
+        <td><span class="boton" style="background-color: #FF1A96;"><a href="http://www.google.co.ve">SALIR</a></span></td>
+        <td><span class="boton" style="background-color: #FF1A96;"><a href="{{ path("reglas") }}">CONTINUAR</a></span></td>
+        
+    </tr>
+    
+</table>
+<br />
+</div>
+{% endblock %}

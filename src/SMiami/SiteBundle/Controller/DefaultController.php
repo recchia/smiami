@@ -14,6 +14,30 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $session = $this->getRequest()->getSession();
+        if($session->get('intro') == false) {
+            return $this->forward('SiteBundle:Default:intro');
+        }
+        return $this->render('SiteBundle:Default:index.html.twig');
+    }
+    
+    /**
+     * @Route("/intro")
+     * @Template()
+     */
+    public function introAction()
+    {
+        return $this->render('SiteBundle:Default:intro.html.twig');
+    }
+    
+    /**
+     * @Route("/reglas", name="reglas")
+     * @Template()
+     */
+    public function reglasAction()
+    {
+        $session = $this->getRequest()->getSession();
+        $session->set('intro', true);
+        return $this->render('SiteBundle:Default:reglas.html.twig');
     }
 }
