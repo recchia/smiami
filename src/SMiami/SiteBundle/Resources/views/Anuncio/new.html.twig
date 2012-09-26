@@ -1,0 +1,14 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+<div id="fos_bundle">
+<h1>Nuevo Anuncio</h1>
+
+<form action="{{ path('anuncio_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Guardar</button>
+    </p>
+</form>
+</div>
+{% endblock %}
