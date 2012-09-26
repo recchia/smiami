@@ -31,7 +31,7 @@ class Pago
     /**
      * @var decimal $precio
      *
-     * @ORM\Column(name="precio", type="decimal", precision=2, scale=2)
+     * @ORM\Column(name="precio", type="decimal", precision=20, scale=2)
      */
     private $precio;
 

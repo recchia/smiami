@@ -44,13 +44,13 @@ class Anuncio
     private $descripcion;
 
     /**
-     * @ORM\OneToOne(targetEntity="Condado", inversedBy="anuncios")
+     * @ORM\ManyToOne(targetEntity="Condado", inversedBy="anuncios")
      * @ORM\JoinColumn(name="condado_id", referencedColumnName="id")
      */
     private $condado;
     
     /**
-     * @ORM\OneToOne(targetEntity="Ciudad", inversedBy="anuncios")
+     * @ORM\ManyToOne(targetEntity="Ciudad", inversedBy="anuncios")
      * @ORM\JoinColumn(name="ciudad_id", referencedColumnName="id")
      */
     private $ciudad;
@@ -63,13 +63,13 @@ class Anuncio
     private $email;
 
     /**
-     * @ORM\OneToOne(targetEntity="Pago", inversedBy="anuncios")
+     * @ORM\ManyToOne(targetEntity="Pago", inversedBy="anuncios")
      * @ORM\JoinColumn(name="pago_id", referencedColumnName="id")
      */
     private $pago;
     
     /**
-     * @ORM\OneToOne(targetEntity="Usuario", inversedBy="anuncios", cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="Usuario", inversedBy="anuncio", cascade={"persist","remove"})
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
     private $usuario;

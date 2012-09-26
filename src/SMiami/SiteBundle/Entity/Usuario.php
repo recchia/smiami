@@ -27,6 +27,11 @@ class Usuario extends BaseUser {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Anuncio", mappedBy="usuario")
+     */
+    private $anuncio;
 }
 
 ?>
