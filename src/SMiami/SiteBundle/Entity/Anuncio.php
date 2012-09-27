@@ -69,13 +69,24 @@ class Anuncio
     private $pago;
     
     /**
-     * @ORM\OneToOne(targetEntity="Usuario", inversedBy="anuncio", cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="Usuario", inversedBy="anuncio")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
     private $usuario;
-
     
+    /**
+     * @ORM\OneToMany(targetEntity="Imagen", mappedBy="anuncio", cascade={"persist","remove"})
+     */
+    private $imagenes;
 
+        /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -268,5 +279,38 @@ class Anuncio
     public function getUsuario()
     {
         return $this->usuario;
+    }
+    
+    /**
+     * Add imagenes
+     *
+     * @param SMiami\SiteBundle\Entity\Imagen $imagenes
+     * @return Anuncio
+     */
+    public function addImagene(\SMiami\SiteBundle\Entity\Imagen $imagenes)
+    {
+        $this->imagenes[] = $imagenes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove imagenes
+     *
+     * @param SMiami\SiteBundle\Entity\Imagen $imagenes
+     */
+    public function removeImagene(\SMiami\SiteBundle\Entity\Imagen $imagenes)
+    {
+        $this->imagenes->removeElement($imagenes);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
     }
 }

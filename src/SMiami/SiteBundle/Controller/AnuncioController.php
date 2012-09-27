@@ -66,7 +66,12 @@ class AnuncioController extends Controller
      */
     public function newAction()
     {
+        $usuario = $this->get("security.context")->getToken()->getUser();
         $entity = new Anuncio();
+        $entity->setUsuario($usuario);
+        for ($index = 0; $index < 4; $index++) {
+            $entity->addImagene(new \SMiami\SiteBundle\Entity\Imagen());
+        }
         $form   = $this->createForm(new AnuncioType(), $entity);
 
         return array(
@@ -85,6 +90,9 @@ class AnuncioController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Anuncio();
+        for ($index = 0; $index < 4; $index++) {
+            $entity->addImagene(new \SMiami\SiteBundle\Entity\Imagen());
+        }
         $form = $this->createForm(new AnuncioType(), $entity);
         $form->bind($request);
 

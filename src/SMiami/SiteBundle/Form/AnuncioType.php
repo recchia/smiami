@@ -18,7 +18,10 @@ class AnuncioType extends AbstractType
             ->add('condado')
             ->add('ciudad')
             ->add('pago')
+            //->add('usuario', 'hidden', array('data_class' => '\SMiami\SiteBundle\Entity\Usuario', 'property_path' => 'usuario.id'))
+            //->add('usuario', 'hidden', array('property_path' => 'usuario.id'))
             ->add('usuario')
+            ->add('imagenes', 'collection', array('type' => new ImagenType()))
         ;
     }
 

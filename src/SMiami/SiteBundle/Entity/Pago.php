@@ -97,6 +97,6 @@ class Pago
      * @return string
      */
     public function __toString() {
-        return $this->getDescripcion().' - '.$this->getPrecio();
+        return $this->getDescripcion().' - '.$this->getPrecio().'$';
     }
 }
