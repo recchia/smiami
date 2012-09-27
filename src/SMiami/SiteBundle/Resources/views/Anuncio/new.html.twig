@@ -1,5 +1,20 @@
 {% extends "::layout.html.twig" %}
 
+{% block header %}
+<div id="header">
+    <img src="{{ asset('images/bocai_registro.png') }}" />  
+    <img src="{{ asset('images/mysexymiami3.png') }}" />
+    <img src="{{ asset('images/bocad_registro.png') }}" />
+</div>
+<div id="slogan" style="background-color: #9100B2;">
+    <p>
+    <a href="{{ path("anuncio_reglas") }}"><div style="position:absolute; top:16%; left:3%; ">PONER UN AD</div></a>    
+    SOY TU SECRETO ONLINE...
+    <a href="http://mibellivenezolana.blogspot.com/" target="_blank"><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" height="80px" width="110px" /></div></a>
+    </p>
+</div>
+{% endblock %}
+
 {% block content %}
 <div id="fos_bundle">
 <h1>Nuevo Anuncio</h1>
