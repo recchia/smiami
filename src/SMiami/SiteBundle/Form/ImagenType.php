@@ -12,7 +12,6 @@ class ImagenType extends AbstractType
     {
         $builder
             ->add('file', null, array('label' => 'Imagen', 'property_path' => false))
-            //->add('anuncio')
         ;
     }
 
