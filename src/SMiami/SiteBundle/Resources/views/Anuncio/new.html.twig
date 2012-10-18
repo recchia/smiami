@@ -20,7 +20,22 @@
 <h1>Nuevo Anuncio</h1>
 
 <form action="{{ path('anuncio_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.nombre) }}
+    {{ form_row(form.edad) }}
+    {{ form_row(form.descripcion) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.condado) }}
+    {{ form_row(form.ciudad) }}
+    {{ form_row(form.pago) }}
+    <h3>Imagenes</h3>
+    <ul class="imagenes">
+        {% for img in form.imagenes %}
+            <li>{{ form_row(img.imagen) }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ form_rest(form) }}
     <p>
         <button type="submit">Guardar</button>
     </p>

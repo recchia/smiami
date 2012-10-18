@@ -68,7 +68,7 @@ class AnuncioController extends Controller
     {
         $entity = new Anuncio();
         for ($index = 0; $index < 1; $index++) {
-            $entity->addImagene(new \SMiami\SiteBundle\Entity\Imagen());
+            $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
         }
         $form   = $this->createForm(new AnuncioType(), $entity);
 
@@ -88,9 +88,9 @@ class AnuncioController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Anuncio();
-        /*for ($index = 0; $index < 4; $index++) {
-            $entity->addImagene(new \SMiami\SiteBundle\Entity\Imagen());
-        }*/
+        for ($index = 0; $index < 1; $index++) {
+            $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
+        }
         $form = $this->createForm(new AnuncioType(), $entity);
         $form->bind($request);
 
@@ -98,6 +98,9 @@ class AnuncioController extends Controller
             $em = $this->getDoctrine()->getManager();
             $usuario = $this->get("security.context")->getToken()->getUser();
             $entity->setUsuario($usuario);
+            foreach ($entity->getImagenes() as $img) {
+                $img->setAnuncio($entity);
+            }
             $em->persist($entity);
             $em->flush();
 

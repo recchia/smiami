@@ -5,7 +5,22 @@
 <h1>Editar Anuncio</h1>
 
 <form action="{{ path('anuncio_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
+    {{ form_errors(edit_form) }}
+    {{ form_row(edit_form.nombre) }}
+    {{ form_row(edit_form.edad) }}
+    {{ form_row(edit_form.descripcion) }}
+    {{ form_row(edit_form.email) }}
+    {{ form_row(edit_form.condado) }}
+    {{ form_row(edit_form.ciudad) }}
+    {{ form_row(edit_form.pago) }}
+    <h3>Imagenes</h3>
+    <ul class="imagenes">
+        {% for img in edit_form.imagenes %}
+            <li>{{ form_row(img.imagen) }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ form_rest(edit_form) }}
     <p>
         <button type="submit">Edit</button>
     </p>

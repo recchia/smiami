@@ -32,11 +32,11 @@ class Imagen
     
     /**
      * @Assert\Image(
-     *     maxSize = "1024k",
+     *     maxSize = "2048k",
      *     mimeTypesMessage = "Seleccione una imagen por favor"
      * )
      */
-    public $file;
+    public $imagen;
 
     /**
      * @var \SMiami\UserBundle\Entity\Anuncio $anuncio
@@ -123,35 +123,32 @@ class Imagen
         return 'uploads/fotos';
     }
     
-    private function cadenaAleatoria($limite = 8) 
-    {
-        return substr(md5(mt_rand(100000, 999999)), 0, $limite);
-    }
-    
     /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
     public function preUpload()
     {
-        if (null !== $this->file) {
-            $this->path = hash_hmac('sha256', $this->cadenaAleatoria(4), $this->cadenaAleatoria(4)).'.'.$this->file->guessExtension();
+        if (null !== $this->imagen) {
+            $this->path = uniqid().'.'.$this->imagen->guessExtension();
         }
     }
-    
+
     /**
      * @ORM\PostPersist()
      * @ORM\PostUpdate()
      */
     public function upload()
     {
-        if (null === $this->file) {
+        if (null === $this->imagen) {
             return;
         }
-        $this->file->move($this->getUploadRootDir(), $this->path);
-        unset($this->file);
+
+        $this->imagen->move($this->getUploadRootDir(), $this->path);
+
+        //unset($this->file);
     }
-    
+
     /**
      * @ORM\PostRemove()
      */
