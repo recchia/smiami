@@ -18,7 +18,9 @@ class DefaultController extends Controller
         if($session->get('intro') == false) {
             return $this->forward('SiteBundle:Default:intro');
         }
-        return $this->render('SiteBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getEntityManager();
+        $anuncios = $em->getRepository("SiteBundle:Anuncio")->findAll();
+        return $this->render('SiteBundle:Default:index.html.twig', array('anuncios' => $anuncios));
     }
     
     /**

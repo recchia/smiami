@@ -163,6 +163,6 @@ class Imagen
      * toString
      */
     public function __toString() {
-        return 'Imagen: '.$this->path;
+        return $this->path;
     }
 }

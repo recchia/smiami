@@ -64,6 +64,8 @@ body {
 
 #contenido {
     float: left;
+    padding-top: 1em;
+    padding-bottom: 1em;
     width: 100%;
     margin: auto;
     text-align: center;
@@ -406,4 +408,28 @@ form label {
     text-align: left;
     text-align: left;
     
+}
+
+#listado-index {
+    width: 990px;
+    margin: auto;
+    background: #ffffff;
+    color: #9100B2;
+    border: 1px;
+    padding: 0;
+}
+
+#listado-index a {
+    color: #FF2AD7;
+    text-decoration: none;
+}
+
+#listado-index td {
+    border-bottom: 1px dashed #9100B2;
+    margin: 0;
+    padding-bottom: 0.5em;
+}
+
+.pfoot {
+    margin: 0;
 }

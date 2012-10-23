@@ -1,5 +1,23 @@
 {% extends "::layout.html.twig" %}
 
 {% block content %}
-<img src="{{ asset("images/home.png") }}" width="990"/>
+{% set counter = 0 %}
+<table id="listado-index">
+    <tr>
+        {% for anuncio in anuncios %}
+            {% set counter = counter + 1 %}
+            {% if(counter%5 == 1) %}
+            </tr><tr>
+            {% endif %}
+            <td>
+                <p><a href="#">{{ anuncio.nombre }}</a></p>
+                {% for imagen in anuncio.imagenes %}
+                    <img src="{{ asset("uploads/fotos/" ~ imagen.path) }}" width="135" height="180"/>
+                {% endfor %}
+                <p class="pfoot">{{ anuncio.condado }} - {{ anuncio.ciudad }}</p>
+                <p class="pfoot"><a href="">Comentar</a></p>
+            </td>
+        {% endfor %}
+    </tr>
+</table>
 {% endblock %}
