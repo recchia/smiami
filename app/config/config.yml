@@ -67,8 +67,8 @@ fos_user:
         confirmation:
             enabled:    true
     from_email:
-        address:        admin@mysexymiami.com
-        sender_name:    Mysexymiami
+        address:        mysexymiami@yahoo.com
+        sender_name:    MySexyMiami
 
 services:
     smiami.type.anuncio_selector:
