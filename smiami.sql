@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-10-2012 a las 23:11:17
+-- Tiempo de generación: 25-10-2012 a las 15:56:51
 -- Versión del servidor: 5.5.24
 -- Versión de PHP: 5.3.14
 
@@ -41,14 +41,16 @@ CREATE TABLE IF NOT EXISTS `Anuncio` (
   KEY `IDX_8486F948B547B50A` (`condado_id`),
   KEY `IDX_8486F948E8608214` (`ciudad_id`),
   KEY `IDX_8486F94863FB8380` (`pago_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `Anuncio`
 --
 
 INSERT INTO `Anuncio` (`id`, `condado_id`, `ciudad_id`, `pago_id`, `usuario_id`, `nombre`, `edad`, `descripcion`, `email`) VALUES
-(5, 1, 1, 1, 2, 'Anastasia', 20, 'fdsfds sdfdsf sdfdsf sdfdsf sdfsdf', 'anastasia@gmail.com');
+(5, 1, 1, 1, 2, 'Anastasia', 20, 'fdsfds sdfdsf sdfdsf sdfdsf sdfsdf', 'anastasia@gmail.com'),
+(6, 1, 1, 1, 3, 'Anabella', 36, 'griego francés de todo papa', 'anabella@dudmail.com'),
+(10, 1, 1, 2, 4, 'Amanda', 30, 'Amanda Gutierrez\r\nAmanda Gutierrez\r\nAmanda Gutierrez\r\nAmanda Gutierrez', 'amanda@dudmail.com');
 
 -- --------------------------------------------------------
 
@@ -70,6 +72,24 @@ CREATE TABLE IF NOT EXISTS `Ciudad` (
 
 INSERT INTO `Ciudad` (`id`, `condado_id`, `nombre`) VALUES
 (1, 1, 'Doral');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Comentario`
+--
+
+CREATE TABLE IF NOT EXISTS `Comentario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `anuncio_id` int(11) DEFAULT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
+  `comentario` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `ip` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_4CCE4D2963066FD` (`anuncio_id`),
+  KEY `IDX_4CCE4D2DB38439E` (`usuario_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -117,14 +137,16 @@ CREATE TABLE IF NOT EXISTS `fos_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `fos_user`
 --
 
 INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`) VALUES
-(2, 'recchia', 'recchia', 'piero.recchia@gmail.com', 'piero.recchia@gmail.com', 1, 'aeinsr4gwtcgskso80gc8gsck8wc4cc', 'g5BM2gF1df/qQOJ4tISpJyFoR+jcY0cPGGAA4DbA7OFMeQlb9Vv0Heiuca6UUmPxpQR+q7Os5d3Oxza6Y8DKEg==', '2012-10-17 16:49:19', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL);
+(2, 'recchia', 'recchia', 'piero.recchia@gmail.com', 'piero.recchia@gmail.com', 1, 'aeinsr4gwtcgskso80gc8gsck8wc4cc', 'g5BM2gF1df/qQOJ4tISpJyFoR+jcY0cPGGAA4DbA7OFMeQlb9Vv0Heiuca6UUmPxpQR+q7Os5d3Oxza6Y8DKEg==', '2012-10-17 16:49:19', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL),
+(3, 'covisca', 'covisca', 'ana.covis@gmail.com', 'ana.covis@gmail.com', 1, 'prvm25bgpassoss88s4ocsoooc8ks0w', 'rZc56Pe3ofXmKeqLhlG+dWR+o/kws2jtro4ASsPrrGg4x9U1ahWm//OLsTgmvoYDnVc8g+E7zPpUy7bX3yAC9w==', '2012-10-24 09:28:17', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL),
+(4, 'anita', 'anita', 'covisca@gmail.com', 'covisca@gmail.com', 1, 'avf2mv6bhyoscowgsks4owcwgwkow04', 'KlVefn9u9ahJAf53GNqRvp65fhQ5kQ087N+WnHamc+odQZLStcmV2+bM68VMS1JgYRyNNwgeLC1pzaw/0ZfOOw==', '2012-10-24 09:34:28', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -138,14 +160,16 @@ CREATE TABLE IF NOT EXISTS `Imagen` (
   `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_84B5D785963066FD` (`anuncio_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `Imagen`
 --
 
 INSERT INTO `Imagen` (`id`, `anuncio_id`, `path`) VALUES
-(1, 5, '507f8966defaa.jpeg');
+(1, 5, '507f8966defaa.jpeg'),
+(2, 6, '5086d2c2c968b.png'),
+(3, 10, '5087f5b0ee069.jpeg');
 
 -- --------------------------------------------------------
 
@@ -186,6 +210,13 @@ ALTER TABLE `Anuncio`
 --
 ALTER TABLE `Ciudad`
   ADD CONSTRAINT `FK_892A00A8B547B50A` FOREIGN KEY (`condado_id`) REFERENCES `Condado` (`id`);
+
+--
+-- Filtros para la tabla `Comentario`
+--
+ALTER TABLE `Comentario`
+  ADD CONSTRAINT `FK_4CCE4D2DB38439E` FOREIGN KEY (`usuario_id`) REFERENCES `fos_user` (`id`),
+  ADD CONSTRAINT `FK_4CCE4D2963066FD` FOREIGN KEY (`anuncio_id`) REFERENCES `Anuncio` (`id`);
 
 --
 -- Filtros para la tabla `Imagen`
