@@ -14,7 +14,7 @@
 </div>
 <div id="slogan">
     <p>
-    <a href="{{ path("anuncio_reglas") }}"><div style="position:absolute; top:16%; left:3%; ">PONER UN AD</div></a>    
+    <a href="{{ path("anuncio_reglas") }}"><div style="position:absolute; top:13%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" height="80px" width="110px" /></div></a>
     SOY TU SECRETO ONLINE...
     <a href="http://mibellivenezolana.blogspot.com/" target="_blank"><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" height="80px" width="110px" /></div></a>
     </p>
@@ -56,6 +56,19 @@
 </div>
 
 <div id="footer">
+    <div id="menupie">
+        <a class="resaltadopie" href="{{ path("terminos") }}">&nbsp;TÉRMINOS DE USO&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltadopie" href="{{ path("politicas") }}">&nbsp;POLÍTICAS DE PRIVACIDAD&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltadopie" href="{{ path("fos_user_registration_register") }}">&nbsp;REGISTRARSE&nbsp;</a>&nbsp;&nbsp;
+        {% if is_granted('ROLE_USER') %}
+        <a class="resaltadopie" href="{{ path("fos_user_security_logout") }}">&nbsp;SALIR&nbsp;</a>&nbsp;&nbsp;
+        {% else %}
+        <a class="resaltadopie" href="{{ path("fos_user_security_login") }}">&nbsp;INGRESAR&nbsp;</a>&nbsp;&nbsp;
+        {% endif %}
+        <a class="resaltadopie" href="">&nbsp;COMENTARIOS&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltadopie" href="">&nbsp;CONTÁCTENOS&nbsp;</a>&nbsp;&nbsp;
+    </div>
+        
     <p>
         <span class="resaltado">MYSEXYMIAMI.COM</span>  es exclusivamente un Directorio de avisos foto-clasificados Online.
         Todo el contenido de los avisos foto-clasificados es de única y exclusiva responsabilidad de los anunciantes y de ninguna manera la empresa conoce, participa o interfiere en forma o manera alguna en las actividades que estos realizan. 

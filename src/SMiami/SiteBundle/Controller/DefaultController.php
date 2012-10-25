@@ -42,4 +42,24 @@ class DefaultController extends Controller
         $session->set('intro', true);
         return $this->render('SiteBundle:Default:reglas.html.twig');
     }
+
+    /**
+     * @Route("/terminos", name="terminos")
+     * @Template()
+     */
+    public function terminosAction()
+    {
+        return $this->render('SiteBundle:Default:terminos.html.twig');
+    }
+
+    /**
+     * @Route("/politicas", name="politicas")
+     * @Template()
+     */
+    public function politicasAction()
+    {
+        return $this->render('SiteBundle:Default:politicas.html.twig');
+    }
+    
+    
 }
