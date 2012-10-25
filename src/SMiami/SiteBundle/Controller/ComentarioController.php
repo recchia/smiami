@@ -7,27 +7,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SMiami\SiteBundle\Entity\Anuncio;
-use SMiami\SiteBundle\Form\AnuncioType;
+use SMiami\SiteBundle\Entity\Comentario;
+use SMiami\SiteBundle\Form\ComentarioType;
 
 /**
- * Anuncio controller.
+ * Comentario controller.
  *
- * @Route("/anuncio")
+ * @Route("/comentario")
  */
-class AnuncioController extends Controller
+class ComentarioController extends Controller
 {
     /**
-     * Lists all Anuncio entities.
+     * Lists all Comentario entities.
      *
-     * @Route("/", name="anuncio")
+     * @Route("/", name="comentario")
      * @Template()
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SiteBundle:Anuncio')->findAll();
+        $entities = $em->getRepository('SiteBundle:Comentario')->findAll();
 
         return array(
             'entities' => $entities,
@@ -35,19 +35,19 @@ class AnuncioController extends Controller
     }
 
     /**
-     * Finds and displays a Anuncio entity.
+     * Finds and displays a Comentario entity.
      *
-     * @Route("/{id}/show", name="anuncio_show")
+     * @Route("/{id}/show", name="comentario_show")
      * @Template()
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SiteBundle:Anuncio')->find($id);
+        $entity = $em->getRepository('SiteBundle:Comentario')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Anuncio entity.');
+            throw $this->createNotFoundException('Unable to find Comentario entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -59,52 +59,47 @@ class AnuncioController extends Controller
     }
 
     /**
-     * Displays a form to create a new Anuncio entity.
+     * Displays a form to create a new Comentario entity.
      *
-     * @Route("/new", name="anuncio_new")
+     * @Route("/new/{perfil}", name="comentario_new")
      * @Template()
      */
-    public function newAction()
+    public function newAction($perfil)
     {
-        $entity = new Anuncio();
-        for ($index = 0; $index < 2; $index++) {
-            $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
-        }
-        $form   = $this->createForm(new AnuncioType(), $entity);
+        $entity = new Comentario();
+        $entity->setIp($this->container->get('request')->getClientIp());
+        $em = $this->getDoctrine()->getEntityManager();
+        $perfil = $em->getRepository("SiteBundle:Anuncio")->find($perfil);
+        $entity->setAnuncio($perfil);
+        $form   = $this->createForm(new ComentarioType(), $entity);
 
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'nombre' => $perfil->getNombre()
         );
     }
 
     /**
-     * Creates a new Anuncio entity.
+     * Creates a new Comentario entity.
      *
-     * @Route("/create", name="anuncio_create")
+     * @Route("/create", name="comentario_create")
      * @Method("POST")
-     * @Template("SiteBundle:Anuncio:new.html.twig")
+     * @Template("SiteBundle:Comentario:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity  = new Anuncio();
-        for ($index = 0; $index < 2; $index++) {
-            $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
-        }
-        $form = $this->createForm(new AnuncioType(), $entity);
+        $em = $this->getDoctrine()->getManager();
+        $autor = $this->get("security.context")->getToken()->getUser();
+        $entity  = new Comentario();
+        $entity->setAutor($autor);
+        $form = $this->createForm(new ComentarioType(), $entity);
         $form->bind($request);
-
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $usuario = $this->get("security.context")->getToken()->getUser();
-            $entity->setUsuario($usuario);
-            foreach ($entity->getImagenes() as $img) {
-                $img->setAnuncio($entity);
-            }
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('anuncio_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('comentario_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -114,22 +109,22 @@ class AnuncioController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing Anuncio entity.
+     * Displays a form to edit an existing Comentario entity.
      *
-     * @Route("/{id}/edit", name="anuncio_edit")
+     * @Route("/{id}/edit", name="comentario_edit")
      * @Template()
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SiteBundle:Anuncio')->find($id);
+        $entity = $em->getRepository('SiteBundle:Comentario')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Anuncio entity.');
+            throw $this->createNotFoundException('Unable to find Comentario entity.');
         }
 
-        $editForm = $this->createForm(new AnuncioType(), $entity);
+        $editForm = $this->createForm(new ComentarioType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
@@ -140,31 +135,31 @@ class AnuncioController extends Controller
     }
 
     /**
-     * Edits an existing Anuncio entity.
+     * Edits an existing Comentario entity.
      *
-     * @Route("/{id}/update", name="anuncio_update")
+     * @Route("/{id}/update", name="comentario_update")
      * @Method("POST")
-     * @Template("SiteBundle:Anuncio:edit.html.twig")
+     * @Template("SiteBundle:Comentario:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SiteBundle:Anuncio')->find($id);
+        $entity = $em->getRepository('SiteBundle:Comentario')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Anuncio entity.');
+            throw $this->createNotFoundException('Unable to find Comentario entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new AnuncioType(), $entity);
+        $editForm = $this->createForm(new ComentarioType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('anuncio_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('comentario_edit', array('id' => $id)));
         }
 
         return array(
@@ -175,9 +170,9 @@ class AnuncioController extends Controller
     }
 
     /**
-     * Deletes a Anuncio entity.
+     * Deletes a Comentario entity.
      *
-     * @Route("/{id}/delete", name="anuncio_delete")
+     * @Route("/{id}/delete", name="comentario_delete")
      * @Method("POST")
      */
     public function deleteAction(Request $request, $id)
@@ -187,17 +182,17 @@ class AnuncioController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SiteBundle:Anuncio')->find($id);
+            $entity = $em->getRepository('SiteBundle:Comentario')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Anuncio entity.');
+                throw $this->createNotFoundException('Unable to find Comentario entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('anuncio'));
+        return $this->redirect($this->generateUrl('comentario'));
     }
 
     private function createDeleteForm($id)
@@ -206,14 +201,5 @@ class AnuncioController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
-    }
-    
-    /**
-     * @Route("/reglas", name="anuncio_reglas")
-     * @Template()
-     */
-    public function reglasAction()
-    {
-        return $this->render('SiteBundle:Anuncio:reglas.html.twig');
     }
 }

@@ -1,0 +1,22 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+<div id="fos_bundle">
+<h1>Nuevo Comentario para {{ nombre }}</h1>
+
+<form action="{{ path('comentario_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Comentar</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('comentario') }}">
+            Coemtarios de {{ nombre }}
+        </a>
+    </li>
+</ul>
+</div>
+{% endblock %}

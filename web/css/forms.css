@@ -13,6 +13,6 @@
 }
 
 #fos_bundle label {
-    display: inline-block;
+    display: block;
     width: 12em;
 }

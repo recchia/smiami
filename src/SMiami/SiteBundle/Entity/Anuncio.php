@@ -313,4 +313,8 @@ class Anuncio
     {
         return $this->imagenes;
     }
+    
+    public function __toString() {
+        return $this->nombre;
+    }
 }
