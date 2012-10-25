@@ -69,3 +69,10 @@ fos_user:
     from_email:
         address:        mysexymiami@yahoo.com
         sender_name:    MySexyMiami
+
+services:
+    smiami.type.anuncio_selector:
+        class: SMiami\SiteBundle\Form\Type\AnuncioSelectorType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: anuncio_selector }
