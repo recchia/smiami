@@ -67,7 +67,7 @@ class AnuncioController extends Controller
     public function newAction()
     {
         $entity = new Anuncio();
-        for ($index = 0; $index < 2; $index++) {
+        for ($index = 0; $index < 4; $index++) {
             $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
         }
         $form   = $this->createForm(new AnuncioType(), $entity);
@@ -88,7 +88,7 @@ class AnuncioController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Anuncio();
-        for ($index = 0; $index < 2; $index++) {
+        for ($index = 0; $index < 4; $index++) {
             $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
         }
         $form = $this->createForm(new AnuncioType(), $entity);
