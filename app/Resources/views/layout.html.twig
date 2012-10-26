@@ -58,16 +58,16 @@
 {% block footer %}
 <div id="footer">
     <div id="menupie">
-        <a class="resaltadopie" href="{{ path("terminos") }}">&nbsp;TÉRMINOS DE USO&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltadopie" href="{{ path("politicas") }}">&nbsp;POLÍTICAS DE PRIVACIDAD&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltadopie" href="{{ path("fos_user_registration_register") }}">&nbsp;REGISTRARSE&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("terminos") }}">&nbsp;TÉRMINOS DE USO&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("politicas") }}">&nbsp;POLÍTICAS DE PRIVACIDAD&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("fos_user_registration_register") }}">&nbsp;REGISTRARSE&nbsp;</a>&nbsp;&nbsp;
         {% if is_granted('ROLE_USER') %}
-        <a class="resaltadopie" href="{{ path("fos_user_security_logout") }}">&nbsp;SALIR&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("fos_user_security_logout") }}">&nbsp;SALIR&nbsp;</a>&nbsp;&nbsp;
         {% else %}
-        <a class="resaltadopie" href="{{ path("fos_user_security_login") }}">&nbsp;INGRESAR&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("fos_user_security_login") }}">&nbsp;INGRESAR&nbsp;</a>&nbsp;&nbsp;
         {% endif %}
-        <a class="resaltadopie" href="">&nbsp;COMENTARIOS&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltadopie" href="">&nbsp;CONTÁCTENOS&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="">&nbsp;COMENTARIOS&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="">&nbsp;CONTÁCTENOS&nbsp;</a>&nbsp;&nbsp;
     </div>
         
     <p>

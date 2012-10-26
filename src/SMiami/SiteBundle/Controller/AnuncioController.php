@@ -216,4 +216,18 @@ class AnuncioController extends Controller
     {
         return $this->render('SiteBundle:Anuncio:reglas.html.twig');
     }
+    
+
+    /**
+     * Finds and displays a Anuncio entity.
+     *
+     * @Route("/detalle", name="detalle_show")
+     * @Template()
+     */
+    public function detalleAction()
+    {
+        return $this->render('SiteBundle:Anuncio:detalle.html.twig');
+        
+    }
 }
+
