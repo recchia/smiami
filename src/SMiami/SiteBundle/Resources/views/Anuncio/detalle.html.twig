@@ -2,7 +2,7 @@
 
 {% block content %}
 <table id="detalle-anuncio" align="center" class="resaltado">
-    <th>DAMAS | CIUDAD-Condado</th>
+    <th>DAMAS | {{ anuncio.condado }}-{{ anuncio.ciudad }}</th>
 	<tr>
 		<td>
                     <img src="{{ asset('images/bocai_11.png') }}" width="150" height="200" border="1" alt="" />
@@ -20,22 +20,22 @@
                     <img src="{{ asset('images/bocai_11.png') }}" width="75" height="100" alt="" />
 		</td>
 		<th>Nombre:</th>
-		<td><h1>NOMBRE DAMA</h1></td>
+		<td><h1>{{ anuncio.nombre }}</h1></td>
          </tr>
          <tr>
             <td colspan="5">&nbsp;</td>            
             <th>Email:</th>
-            <td>dama@email.com</td>
+            <td>{{ anuncio.email }}</td>
          </tr>
          <tr>
             <td colspan="5">&nbsp;</td>            
             <th>Edad:</th>
-            <td>EDAD DAMA</td>
+            <td>{{ anuncio.edad }}</td>
          </tr>
          <tr>
             <td colspan="5">&nbsp;</td>            
             <th>Descripción:</th>
-            <td>DESCRIPCION DAMA</td>
+            <td>{{ anuncio.descripcion }}</td>
          </tr>
 
 </table>

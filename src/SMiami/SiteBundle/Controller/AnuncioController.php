@@ -221,12 +221,14 @@ class AnuncioController extends Controller
     /**
      * Finds and displays a Anuncio entity.
      *
-     * @Route("/detalle", name="detalle_show")
+     * @Route("/detalle/{perfil}", name="detalle_show")
      * @Template()
      */
-    public function detalleAction()
+    public function detalleAction($perfil)
     {
-        return $this->render('SiteBundle:Anuncio:detalle.html.twig');
+        $em = $this->getDoctrine()->getEntityManager();
+        $anuncio = $em->getRepository('SiteBundle:Anuncio')->find($perfil);
+        return array('anuncio' => $anuncio);
         
     }
 }

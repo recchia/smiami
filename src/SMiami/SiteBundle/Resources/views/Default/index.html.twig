@@ -10,7 +10,7 @@
             </tr><tr>
             {% endif %}
             <td>
-                <p><a href="{{ path('detalle_show')}}">{{ anuncio.nombre }}</a></p>
+                <p><a href="{{ path('detalle_show', { 'perfil': anuncio.id } )}}">{{ anuncio.nombre }}</a></p>
                 {% for imagen in anuncio.imagenes %}
                     <img src="{{ asset("uploads/fotos/" ~ imagen.path) }}" width="135" height="180"/>
                 {% endfor %}
