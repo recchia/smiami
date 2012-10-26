@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class AnuncioRepository extends EntityRepository
 {
+    public function getDamas()
+    {
+        $em = $this->getEntityManager();
+        
+        $strSQL = "SELECT a.id, a.nombre, co.nombre AS condado, ci.nombre AS ciudad, i.path AS imagen FROM SiteBundle:Anuncio a JOIN a.condado co JOIN a.ciudad ci JOIN a.imagenes i WHERE i.portada = true";
+        $consulta = $em->createQuery($strSQL);
+        
+        return $consulta->getResult();
+    }
 }

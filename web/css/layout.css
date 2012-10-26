@@ -455,3 +455,8 @@ form label {
 .pfoot {
     margin: 0;
 }
+
+#detalle-anuncio td {
+    text-align: justify;
+    padding: 0.5em;
+}

@@ -65,7 +65,7 @@ fos_user:
     user_class: SMiami\SiteBundle\Entity\Usuario
     registration:
         confirmation:
-            enabled:    true
+            enabled:    false
     from_email:
         address:        mysexymiami@yahoo.com
         sender_name:    MySexyMiami
