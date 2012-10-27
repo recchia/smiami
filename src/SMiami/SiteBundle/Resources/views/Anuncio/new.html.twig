@@ -4,20 +4,21 @@
 <div id="header">
     <img src="{{ asset('images/bocai_registro.png') }}" />  
     <img src="{{ asset('images/mysexymiami3.png') }}" />
+    <img src="{{ asset('images/sm.png') }}" />
     <img src="{{ asset('images/bocad_registro.png') }}" />
 </div>
-<div id="slogan" style="background-color: #9100B2;">
+<div id="slogan" style="background-color:#9100B2;">
     <p>
-    <a href="{{ path("anuncio_reglas") }}"><div style="position:absolute; top:16%; left:3%; ">PONER UN AD</div></a>    
+    <a href="{{ path("anuncio_reglas") }}" alt="Poner un Ad" title="Poner un Ad"><div style="position:absolute; top:14%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" /></div></a>
     SOY TU SECRETO ONLINE...
-    <a href="http://mibellivenezolana.blogspot.com/" target="_blank"><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" height="80px" width="110px" /></div></a>
+    <a href="http://mibellivenezolana.blogspot.com/" target="_blank" alt="LEE AQUÍ; Blogs, Fantasías y algo más..." title="LEE AQUÍ; Blogs, Fantasías y algo más..."><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" /></div></a>
     </p>
 </div>
 {% endblock %}
 
 {% block content %}
 <div id="fos_bundle">
-<h1>Nuevo Anuncio</h1>
+<h2>Nuevo Anuncio</h2>
 
 <form action="{{ path('anuncio_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
@@ -28,7 +29,7 @@
     {{ form_row(form.condado) }}
     {{ form_row(form.ciudad) }}
     {{ form_row(form.pago) }}
-    <h3>Imagenes</h3>
+    <h3>Imágenes</h3>
     <ul class="imagenes">
         {% for img in form.imagenes %}
             <li>{{ form_row(img.imagen) }}</li>

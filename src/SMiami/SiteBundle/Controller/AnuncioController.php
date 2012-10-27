@@ -221,7 +221,7 @@ class AnuncioController extends Controller
     /**
      * Finds and displays a Anuncio entity.
      *
-     * @Route("/detalle", name="detalle_show")
+     * @Route("/detalle", name="anuncio_detalle")
      * @Template()
      */
     public function detalleAction()

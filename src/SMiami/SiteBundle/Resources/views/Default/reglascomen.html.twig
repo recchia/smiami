@@ -1,0 +1,49 @@
+{% extends "::layout.html.twig" %}
+
+{% block header %}
+<div id="header">
+    <img src="{{ asset('images/bocai_comentarios.png') }}" />  
+    <img src="{{ asset('images/mysexymiami1.png') }}" />
+    <img src="{{ asset('images/sm.png') }}" />
+    <img src="{{ asset('images/bocad_comentarios.png') }}" />
+</div>
+<div id="slogan" style="background-color: #FF2AD7;">
+    <p>
+    <a href="{{ path("anuncio_reglas") }}" alt="Poner un Ad" title="Poner un Ad"><div style="position:absolute; top:14%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" /></div></a>
+    SOY TU SECRETO ONLINE...
+    <a href="http://mibellivenezolana.blogspot.com/" target="_blank" alt="LEE AQUÍ; Blogs, Fantasías y algo más..." title="LEE AQUÍ; Blogs, Fantasías y algo más..."><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" /></div></a>
+    </p>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div id="reglas" style="color: #FF2AD7;">
+   
+    <p align="center"><span class="titulocomentarios">Sección de Comentarios</span></p>
+    
+    <p>En este directorio online tienes la oportunidad de buscar los comentarios acerca de las damas o spa que  te interesan. Podrás leer y opinar  acerca de los servicios, su trato y también podrás chequear si la chica es realmente la foto, si su servicio es en casa u hotel, positivo o negativo, en fin antes de llamar para pedir alguna información  tienes la oportunidad de averiguar un poco acerca de lo que te interesa y así te sentirás más seguro al momento de pedir tu servicio.<p>
+
+    <p align="center"><span class="titulocomentarios">Advertencia</span></p>
+    
+    <p>En esta sección solo podrás comentar <span class="subrayado">exclusivamente sobre los servicios y o personas que están anunciados aquí.</span> Pues se prohíbe escribir sobre personas o negocios ajenos a este directorio de clasificados online para adultos. <span class="subrayado">Esta página se reserva el derecho de excluir, eliminar y borrar cualquier comentario, opinión, o palabra que se considere fuera de la ley, prohibida, obscena o que exceda los límites del objetivo de esta sección y de este directorio de clasificados online para adultos.</span></p>
+    
+    <p style="font-size:16px">Reglas para ser parte y usar la sección de comentarios de <span class="resaltado">MYSEXYMIAMI.COM</span></p>
+    
+    <ol>
+        <li>Debes registrarte primero para poder escribir y compartir tu experiencia, debes crear un nombre de usuario y una contraseña (este registro es completamente gratuito y privado) podrás leer y escribir todo lo que desees.</li>
+        <br />        
+        <li>Esta sección de comentarios está siendo chequeada permanentemente por nuestro personal, para evitar malas palabras, vulgaridades, o algún comentario inapropiado, que en lugar de ayudar y guiar al usuario en su búsqueda, por el contrario perjudique a los anunciantes aquí publicados o lectores en general.</li>
+        <br />
+        <li>Debes ser mayor de 18 años para leer, regístrate y comentar acerca de las chicas o spa aquí anunciados. Una vez que aceptes y  te hayas  registrado, es porque comprendes y aceptas que eres mayor de edad y por lo tanto puedes formar parte y hacer uso de esta sección.</li>
+        <br />
+        <li>Tu integridad, seguridad y privacidad en este directorio online está garantizada, ya que  <span class="resaltado">MYSEXYMIAMI.COM</span>  no  guarda, almacena o comparte ningún tipo de información personal con ningún ente personal o gubernamental alguno. <span class="subrayado">Para nosotros la discreción y privacidad es primero que todo.</span></li>
+    </ol>
+
+    <p>Así pues te invitamos a que leas y te registres cuando lo desees para que compartas tu experiencia, opines sobre las chicas o los spa aquí publicados, y califiques el servicio de malo o bueno, para que así otras personas interesadas puedan guiarse un poco antes de llamar.</p>
+   
+    <p align="left"><span class="boton" style="background-color: #FF2AD7"><a href="{{ path("comentario") }}">Continuar</span></a>
+    <br/></p>
+
+</div>            
+{% endblock %}
