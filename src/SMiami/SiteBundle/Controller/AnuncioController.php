@@ -67,7 +67,7 @@ class AnuncioController extends Controller
     public function newAction()
     {
         $entity = new Anuncio();
-        for ($index = 0; $index < 2; $index++) {
+        for ($index = 0; $index < 4; $index++) {
             $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
         }
         $form   = $this->createForm(new AnuncioType(), $entity);
@@ -88,7 +88,7 @@ class AnuncioController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Anuncio();
-        for ($index = 0; $index < 2; $index++) {
+        for ($index = 0; $index < 4; $index++) {
             $entity->getImagenes()->add(new \SMiami\SiteBundle\Entity\Imagen());
         }
         $form = $this->createForm(new AnuncioType(), $entity);
@@ -221,12 +221,14 @@ class AnuncioController extends Controller
     /**
      * Finds and displays a Anuncio entity.
      *
-     * @Route("/detalle", name="anuncio_detalle")
+     * @Route("/detalle/{perfil}", name="detalle_show")
      * @Template()
      */
-    public function detalleAction()
+    public function detalleAction($perfil)
     {
-        return $this->render('SiteBundle:Anuncio:detalle.html.twig');
+        $em = $this->getDoctrine()->getEntityManager();
+        $anuncio = $em->getRepository('SiteBundle:Anuncio')->find($perfil);
+        return array('anuncio' => $anuncio);
         
     }
 }

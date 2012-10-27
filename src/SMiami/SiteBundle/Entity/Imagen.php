@@ -37,6 +37,13 @@ class Imagen
      * )
      */
     public $imagen;
+    
+    /**
+     * @var boolean $portada
+     *
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $portada;
 
     /**
      * @var \SMiami\UserBundle\Entity\Anuncio $anuncio
@@ -45,7 +52,18 @@ class Imagen
      * @ORM\JoinColumn(name="anuncio_id", referencedColumnName="id")
      */
     private $anuncio;
-
+    
+    /**
+     * @var date $updated
+     * 
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+    
+    
+    public function __construct() {
+        $this->updated = new \DateTime();
+    }
 
     /**
      * Get id
@@ -164,5 +182,51 @@ class Imagen
      */
     public function __toString() {
         return $this->path;
+    }
+
+    /**
+     * Set portada
+     *
+     * @param boolean $portada
+     * @return Imagen
+     */
+    public function setPortada($portada)
+    {
+        $this->portada = $portada;
+    
+        return $this;
+    }
+
+    /**
+     * Get portada
+     *
+     * @return boolean 
+     */
+    public function getPortada()
+    {
+        return $this->portada;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Imagen
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }

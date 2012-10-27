@@ -24,7 +24,10 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/anuncio/detalle, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/anuncio, role: ROLE_USER }
+        - { path: ^/comentario$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/comentario/new, role: ROLE_USER }
     
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

@@ -32,7 +32,7 @@
     <h3>Imágenes</h3>
     <ul class="imagenes">
         {% for img in form.imagenes %}
-            <li>{{ form_row(img.imagen) }}</li>
+            <li>{{ form_row(img.imagen) }} {{ form_row(img.portada) }}</li>
         {% endfor %}
     </ul>
 
@@ -42,4 +42,21 @@
     </p>
 </form>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/jquery-1.8.2.min.js') }}"></script>
+<script type="text/javascript">
+    $(function () {
+        var $tblChkBox = $("ul.imagenes input:checkbox");
+
+        $tblChkBox.click(function () {
+            var selectedId = this.id;
+
+            $tblChkBox.each(function () {
+                if(this.id != selectedId) this.checked = false;
+            });
+        });
+    });
+</script>
 {% endblock %}

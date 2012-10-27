@@ -2,41 +2,22 @@
 
 {% block content %}
 <table id="detalle-anuncio" align="center" class="resaltado">
-    <th>DAMAS | CIUDAD-Condado</th>
-	<tr>
-		<td>
-                    <img src="{{ asset('images/bocai_11.png') }}" width="150" height="200" border="1" alt="" />
-		</td>
-                <td>
-                    <img src="{{ asset('images/bocai_11.png') }}" width="75" height="100" alt="" />
-		</td>
-                <td>
-                    <img src="{{ asset('images/bocai_11.png') }}" width="75" height="100" alt="" />
-		</td>
-                <td>
-                    <img src="{{ asset('images/bocai_11.png') }}" width="75" height="100" alt="" />
-		</td>
-                <td>
-                    <img src="{{ asset('images/bocai_11.png') }}" width="75" height="100" alt="" />
-		</td>
-		<th>Nombre:</th>
-		<td><h1>NOMBRE DAMA</h1></td>
-         </tr>
-         <tr>
-            <td colspan="5">&nbsp;</td>            
-            <th>Email:</th>
-            <td>dama@email.com</td>
-         </tr>
-         <tr>
-            <td colspan="5">&nbsp;</td>            
-            <th>Edad:</th>
-            <td>EDAD DAMA</td>
-         </tr>
-         <tr>
-            <td colspan="5">&nbsp;</td>            
-            <th>Descripción:</th>
-            <td>DESCRIPCION DAMA</td>
-         </tr>
-
+    <caption>DAMAS | {{ anuncio.condado }}-{{ anuncio.ciudad }}</caption>
+    <tr>
+    {% set first = true %}
+    {% for imagen in anuncio.imagenes %}
+    {% if(first == true) %}
+            {% set first = false %}
+            <td><img src="{{ asset("uploads/fotos/" ~ imagen.path) }}" width="400" height="534"/></td>           
+    {% endif %}
+            <td><p><img src="{{ asset("uploads/fotos/" ~ imagen.path) }}" width="135" height="180"/></p></td>
+    {% endfor %}
+            <td>
+                <p>Nombre: {{ anuncio.nombre }}</p>
+                <p>Edad: {{ anuncio.edad }}</p>
+                <p>Email: {{ anuncio.email }}</p>
+                <p>Descripción: {{ anuncio.descripcion }}</p>
+            </td>
+    </tr>
 </table>
 {% endblock %}

@@ -10,10 +10,8 @@
             </tr><tr>
             {% endif %}
             <td>
-                <p><a href="{{ path('anuncio_detalle')}}">{{ anuncio.nombre }}</a></p>
-                {% for imagen in anuncio.imagenes %}
-                    <img src="{{ asset("uploads/fotos/" ~ imagen.path) }}" width="135" height="180"/>
-                {% endfor %}
+                <p><a href="{{ path('detalle_show', { 'perfil': anuncio.id } )}}">{{ anuncio.nombre }}</a></p>
+                <img src="{{ asset("uploads/fotos/" ~ anuncio.imagen) }}" width="135" height="180"/>
                 <p class="pfoot">{{ anuncio.condado }} - {{ anuncio.ciudad }}</p>
                 <p class="pfoot"><a href="{{ path('comentario_new', { 'perfil': anuncio.id }) }}">Comentar</a></p>
             </td>

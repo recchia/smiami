@@ -12,6 +12,7 @@ class ImagenType extends AbstractType
     {
         $builder
             ->add('imagen')
+            ->add('portada')
         ;
     }
 

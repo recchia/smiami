@@ -19,7 +19,7 @@ class DefaultController extends Controller
             return $this->forward('SiteBundle:Default:intro');
         }
         $em = $this->getDoctrine()->getEntityManager();
-        $anuncios = $em->getRepository("SiteBundle:Anuncio")->findAll();
+        $anuncios = $em->getRepository("SiteBundle:Anuncio")->getDamas();
         return $this->render('SiteBundle:Default:index.html.twig', array('anuncios' => $anuncios));
     }
     
