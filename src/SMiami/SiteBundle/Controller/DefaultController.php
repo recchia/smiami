@@ -44,6 +44,17 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/reglasreg", name="reglasreg")
+     * @Template()
+     */
+    public function reglasregAction()
+    {
+        $session = $this->getRequest()->getSession();
+        $session->set('intro', true);
+        return $this->render('SiteBundle:Default:reglasreg.html.twig');
+    }
+    
+    /**
      * @Route("/terminos", name="terminos")
      * @Template()
      */
@@ -61,5 +72,22 @@ class DefaultController extends Controller
         return $this->render('SiteBundle:Default:politicas.html.twig');
     }
     
-    
+    /**
+     * @Route("/reglascomen", name="reglascomen")
+     * @Template()
+     */
+    public function reglascomenAction()
+    {
+        return $this->render('SiteBundle:Default:reglascomen.html.twig');
+    }
+
+    /**
+     * @Route("/contactenos", name="contactenos")
+     * @Template()
+     */
+    public function contactenosAction()
+    {
+        return $this->render('SiteBundle:Default:contactenos.html.twig');
+    }
+
 }

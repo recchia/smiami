@@ -1,8 +1,24 @@
 {% extends "::layout.html.twig" %}
 
+{% block header %}
+<div id="header">
+    <img src="{{ asset('images/bocai_comentarios.png') }}" />  
+    <img src="{{ asset('images/mysexymiami1.png') }}" />
+    <img src="{{ asset('images/sm.png') }}" />
+    <img src="{{ asset('images/bocad_comentarios.png') }}" />
+</div>
+<div id="slogan" style="background-color: #FF2AD7;">
+    <p>
+    <a href="{{ path("anuncio_reglas") }}" alt="Poner un Ad" title="Poner un Ad"><div style="position:absolute; top:14%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" /></div></a>
+    SOY TU SECRETO ONLINE...
+    <a href="http://mibellivenezolana.blogspot.com/" target="_blank" alt="LEE AQUÍ; Blogs, Fantasías y algo más..." title="LEE AQUÍ; Blogs, Fantasías y algo más..."><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" /></div></a>
+    </p>
+</div>
+{% endblock %}
+
 {% block content %}
 <div id="fos_bundle">
-<h1>Nuevo Comentario para {{ nombre }}</h1>
+<h2>Nuevo Comentario para {{ nombre }}</h2>
 
 <form action="{{ path('comentario_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
@@ -14,7 +30,7 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('comentario') }}">
-            Coemtarios de {{ nombre }}
+            Comentarios de {{ nombre }}
         </a>
     </li>
 </ul>

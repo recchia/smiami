@@ -55,6 +55,7 @@ body {
     border-top: thin solid #FF1A96;
     color: #9100B2;
     background-color: transparent;
+    font-family: "Arial";
     font-size: 12px; 
     margin-top: 3px;
 
@@ -66,7 +67,7 @@ body {
     margin: auto;
     text-align: center;
     font-family: Arial;
-    font-size: 14px !important;
+    font-size: 12px !important;
     font-weight: normal;
     font-style: italic; 
     margin-top: 10px;
@@ -86,8 +87,8 @@ body {
 }
 
 .resaltado {
-    color: #fc2089;
-    background-color: #ffc9e6;
+    color: #fc2089 !important;
+    background-color: #ffc9e6 !important;
     text-shadow: #000000;
     font-style: italic;
 }

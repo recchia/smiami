@@ -4,6 +4,7 @@
 <div id="header">
     <img src="{{ asset('images/bocai_11.png') }}" />  
     <img src="{{ asset('images/mysexymiami5.png') }}" />
+    <img src="{{ asset('images/sm.png') }}" />    
     <img src="{{ asset('images/bocad_11.png') }}" />
 </div>
 <div id="slogan">
@@ -16,7 +17,7 @@
 {% block menu %}{% endblock %}
 
 {% block content %}
-<div id="reglas">
+<div id="reglas" style="color: #FF1A96; font-style: italic; line-height: 1.4em;">
     <p>Antes de ingresar a la página de <span class="resaltado">MYSEXYMIAMI.COM</span>   usted debe leer atentamente los siguientes Términos y Condiciones:</p>
 
     <p>Al ingresar usted está aceptando los Términos y Condiciones aquí establecidos. Si no está de acuerdo, no debe ingresar ni utilizar dicha página para publicar productos, realizar transacciones y/o navegar en ella.</p>
@@ -59,3 +60,14 @@ Es responsabilidad de la parte interesada hacer las averiguaciones correspondien
 </table>
 <br />
 {% endblock %}
+
+{% block footer %}
+<div id="footer">      
+    <p>
+        <span class="resaltado">MYSEXYMIAMI.COM</span>  es exclusivamente un Directorio de avisos foto-clasificados Online.
+        Todo el contenido de los avisos foto-clasificados es de única y exclusiva responsabilidad de los anunciantes y de ninguna manera la empresa conoce, participa o interfiere en forma o manera alguna en las actividades que estos realizan. 
+        La empresa no se hace responsable por la veracidad, fidelidad, o legalidad del contenido de los avisos foto-clasificados. <span class="resaltado">MYSEXYMIAMI.COM</span>  es para uso exclusivo de personas mayores de edad.  Todos los derechos reservados 2012.
+    </p>   
+</div>
+{% endblock %}
+
