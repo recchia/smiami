@@ -461,3 +461,7 @@ form label {
     text-align: justify;
     padding: 0.5em;
 }
+
+#detalle-anuncio img {
+    border: 0.5em #EBECEC solid;
+}

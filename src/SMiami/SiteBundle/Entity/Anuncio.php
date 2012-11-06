@@ -74,6 +74,13 @@ class Anuncio
      * @ORM\Column(name="email", type="string", length=60)
      */
     private $email;
+    
+    /**
+     * @var boolean $publicar_email
+     *
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $publicar_email;
 
     /**
      * @ORM\ManyToOne(targetEntity="Pago", inversedBy="anuncios")
@@ -375,5 +382,28 @@ class Anuncio
     public function getTelefono()
     {
         return $this->telefono;
+    }
+
+    /**
+     * Set publicar_email
+     *
+     * @param boolean $publicarEmail
+     * @return Anuncio
+     */
+    public function setPublicarEmail($publicarEmail)
+    {
+        $this->publicar_email = $publicarEmail;
+    
+        return $this;
+    }
+
+    /**
+     * Get publicar_email
+     *
+     * @return boolean 
+     */
+    public function getPublicarEmail()
+    {
+        return $this->publicar_email;
     }
 }

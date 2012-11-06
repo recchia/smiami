@@ -15,7 +15,10 @@
             <td>
                 <p>Nombre: {{ anuncio.nombre }}</p>
                 <p>Edad: {{ anuncio.edad }}</p>
+                <p>Teléfono: {{ anuncio.telefono }}</p>
+                {% if(anuncio.PublicarEmail) %}
                 <p>Email: {{ anuncio.email }}</p>
+                {% endif %}
                 <p>Descripción: {{ anuncio.descripcion }}</p>
             </td>
     </tr>
