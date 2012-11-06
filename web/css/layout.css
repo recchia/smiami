@@ -462,6 +462,16 @@ form label {
     padding: 0.5em;
 }
 
+#detalle-anuncio p {
+    font-size: 1.5em;
+}
+
 #detalle-anuncio img {
     border: 0.5em #EBECEC solid;
+    display: inline;
+}
+
+.detalle_titulo {
+    color: #9100B2;
+    font-weight: bold;
 }
