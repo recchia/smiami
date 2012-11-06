@@ -4,16 +4,16 @@
 <table id="detalle-anuncio" align="center" class="resaltado">
     <caption>DAMAS | {{ anuncio.condado }}-{{ anuncio.ciudad }}</caption>
     <tr>
-        <td><img src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[0].path) }}" width="400" height="534"/></td>
+        <td><img id="portada" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[0].path) }}" width="400" height="534"/></td>
         <td>
             <table>
                 <tr>
-                    <td><img src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[0].path) }}" width="135" height="180"/></td>
-                    <td><img src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[1].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb1" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[0].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb2" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[1].path) }}" width="135" height="180"/></td>
                 </tr>
                 <tr>
-                    <td><img src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[2].path) }}" width="135" height="180"/></td>
-                    <td><img src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[3].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb3" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[2].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb4" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[3].path) }}" width="135" height="180"/></td>
                 </tr>
             </table>
         </td>
@@ -28,4 +28,32 @@
         </td>
     </tr>
 </table>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/jquery-1.8.2.min.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#thumb1').on({
+            'click': function(){
+                $('#portada').attr('src',$(this).attr('src'));
+            }
+        });
+        $('#thumb2').on({
+            'click': function(){
+                $('#portada').attr('src',$(this).attr('src'));
+            }
+        });
+        $('#thumb3').on({
+            'click': function(){
+                $('#portada').attr('src',$(this).attr('src'));
+            }
+        });
+        $('#thumb4').on({
+            'click': function(){
+                $('#portada').attr('src',$(this).attr('src'));
+            }
+        });
+    });
+</script>
 {% endblock %}
