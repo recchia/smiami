@@ -42,6 +42,12 @@ class Anuncio
      * @ORM\Column(name="descripcion", type="text", length=500)
      */
     private $descripcion;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Seccion", inversedBy="anuncios")
+     * @ORM\JoinColumn(name="seccion_id", referencedColumnName="id")
+     */
+    private $seccion;
 
     /**
      * @ORM\ManyToOne(targetEntity="Condado", inversedBy="anuncios")
@@ -54,6 +60,13 @@ class Anuncio
      * @ORM\JoinColumn(name="ciudad_id", referencedColumnName="id")
      */
     private $ciudad;
+    
+    /**
+     * @var string $telefono
+     *
+     * @ORM\Column(name="telefono", type="string", length=20)
+     */
+    private $telefono;
 
     /**
      * @var string $email
@@ -164,6 +177,29 @@ class Anuncio
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+    
+    /**
+     * Set seccion
+     *
+     * @param SMiami\SiteBundle\Entity\Condado $seccion
+     * @return Anuncio
+     */
+    public function setSeccion(\SMiami\SiteBundle\Entity\Seccion $seccion = null)
+    {
+        $this->seccion = $seccion;
+    
+        return $this;
+    }
+
+    /**
+     * Get seccion
+     *
+     * @return SMiami\SiteBundle\Entity\Seccion 
+     */
+    public function getSeccion()
+    {
+        return $this->seccion;
     }
 
     /**
@@ -316,5 +352,28 @@ class Anuncio
     
     public function __toString() {
         return $this->nombre;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     * @return Anuncio
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+    
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string 
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
     }
 }
