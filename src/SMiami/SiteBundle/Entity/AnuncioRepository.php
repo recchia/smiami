@@ -21,4 +21,14 @@ class AnuncioRepository extends EntityRepository
         
         return $consulta->getResult();
     }
+    
+    public function getCaballeros()
+    {
+        $em = $this->getEntityManager();
+        
+        $strSQL = "SELECT a.id, a.nombre, co.nombre AS condado, ci.nombre AS ciudad, i.path AS imagen FROM SiteBundle:Anuncio a JOIN a.condado co JOIN a.ciudad ci JOIN a.imagenes i JOIN a.seccion s WHERE i.portada = true AND s.nombre = 'Caballeros'";
+        $consulta = $em->createQuery($strSQL);
+        
+        return $consulta->getResult();
+    }
 }
