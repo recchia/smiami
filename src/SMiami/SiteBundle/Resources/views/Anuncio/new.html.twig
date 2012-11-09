@@ -25,7 +25,10 @@
     {{ form_row(form.nombre) }}
     {{ form_row(form.edad) }}
     {{ form_row(form.descripcion) }}
+    {{ form_row(form.seccion) }}
     {{ form_row(form.email) }}
+    {{ form_row(form.publicar_email) }}
+    {{ form_row(form.telefono) }}
     {{ form_row(form.condado) }}
     {{ form_row(form.ciudad) }}
     {{ form_row(form.pago) }}
@@ -57,6 +60,13 @@
                 if(this.id != selectedId) this.checked = false;
             });
         });
+        
+	$('textarea[maxlength]').keyup(function(){
+		var max = parseInt($(this).attr('maxlength'));
+		if($(this).val().length > max){
+			$(this).val($(this).val().substr(0, $(this).attr('maxlength')));
+		}
+	});
     });
 </script>
 {% endblock %}

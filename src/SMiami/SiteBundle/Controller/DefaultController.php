@@ -20,7 +20,18 @@ class DefaultController extends Controller
         }
         $em = $this->getDoctrine()->getEntityManager();
         $anuncios = $em->getRepository("SiteBundle:Anuncio")->getDamas();
-        return $this->render('SiteBundle:Default:index.html.twig', array('anuncios' => $anuncios));
+        return array('anuncios' => $anuncios);
+    }
+    
+    /**
+     * @Route("/caballeros", name="caballeros")
+     * @Template()
+     */
+    public function caballerosAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $anuncios = $em->getRepository("SiteBundle:Anuncio")->getCaballeros();
+        return array('anuncios' => $anuncios);
     }
     
     /**

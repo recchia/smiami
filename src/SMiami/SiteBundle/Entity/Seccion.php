@@ -5,12 +5,12 @@ namespace SMiami\SiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * SMiami\SiteBundle\Entity\Condado
+ * SMiami\SiteBundle\Entity\Seccion
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Condado
+class Seccion
 {
     /**
      * @var integer $id
@@ -43,7 +43,7 @@ class Condado
      * Set nombre
      *
      * @param string $nombre
-     * @return Condado
+     * @return Seccion
      */
     public function setNombre($nombre)
     {

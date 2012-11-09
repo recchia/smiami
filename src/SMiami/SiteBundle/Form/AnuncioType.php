@@ -13,8 +13,11 @@ class AnuncioType extends AbstractType
         $builder
             ->add('nombre')
             ->add('edad')
-            ->add('descripcion')
+            ->add('descripcion', null, array('label' => 'Descripción (500 caracteres)','attr' => array('rows' => 10, 'cols' => 50, 'maxlength' => 500)))
+            ->add('seccion', null, array('label' => 'Sección'))
             ->add('email')
+            ->add('publicar_email', null, array('label' => '¿Publicar Email?'))
+            ->add('telefono', null, array('label' => 'Teléfono'))
             ->add('condado')
             ->add('ciudad')
             ->add('pago')
