@@ -29,7 +29,7 @@ class Usuario extends BaseUser {
     protected $id;
     
     /**
-     * @ORM\OneToOne(targetEntity="Anuncio", mappedBy="usuario")
+     * @ORM\OneToMany(targetEntity="Anuncio", mappedBy="usuario")
      */
     private $anuncio;
 }

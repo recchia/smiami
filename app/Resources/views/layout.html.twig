@@ -31,18 +31,19 @@
 <div id="menu">
         <ul>
             <li><a href="{{ path("home") }}">DAMAS</a></li>
-            <li><a href="#">SPA / BODY RUBS</a></li>
-            <li><a href="#">TRANSEXUALES</a></li>
-            <li><a href="#">DOMINACIÓN Y FETICHISMO</a></li>
+            <li><a href="{{ path("spa") }}">SPA / BODY RUBS</a></li>
+            <li><a href="{{ path("transexuales") }}">TRANSEXUALES</a></li>
+            <li><a href="{{ path("dominacion") }}">DOMINACIÓN Y FETICHISMO</a></li>
             <li><a href="{{ path("caballeros") }}">CABALLEROS</a></li>
         </ul>
 </div>
 <div id="menu2">
         <ul>
-            <li><a href="{{ path("reglasreg") }}">REGISTRARSE</a></li>
             {% if is_granted('ROLE_USER') %}
+                <li><a href="{{ path("miperfil") }}">MI PERFIL</a></li>
             <li><a href="{{ path("fos_user_security_logout") }}">SALIR</a></li>
             {% else %}
+            <li><a href="{{ path("reglasreg") }}">REGISTRARSE</a></li>
             <li><a href="{{ path("fos_user_security_login") }}">INGRESAR</a></li>
             {% endif %}
             <li><a href="{{ path("reglascomen") }}">COMENTARIOS</a></li>

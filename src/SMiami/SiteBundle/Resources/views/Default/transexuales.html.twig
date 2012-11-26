@@ -1,0 +1,21 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+{% set counter = 0 %}
+<table id="listado-index">
+    <tr>
+        {% for anuncio in anuncios %}
+            {% set counter = counter + 1 %}
+            {% if(counter%5 == 1) %}
+            </tr><tr>
+            {% endif %}
+            <td>
+                <p><a href="{{ path('detalle_show', { 'perfil': anuncio.id } )}}">{{ anuncio.nombre }}</a></p>
+                <a href="{{ path('detalle_show', { 'perfil': anuncio.id } )}}"><img src="{{ asset("uploads/fotos/" ~ anuncio.imagen) }}" width="135" height="180"/></a>
+                <p class="pfoot">{{ anuncio.condado }} - {{ anuncio.ciudad }}</p>
+                <p class="pfoot"><a href="{{ path('comentario_new', { 'perfil': anuncio.id }) }}">Comentar</a></p>
+            </td>
+        {% endfor %}
+    </tr>
+</table>
+{% endblock %}

@@ -35,6 +35,39 @@ class DefaultController extends Controller
     }
     
     /**
+     * @Route("/spa", name="spa")
+     * @Template()
+     */
+    public function spaAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $anuncios = $em->getRepository("SiteBundle:Anuncio")->getSpa();
+        return array('anuncios' => $anuncios);
+    }
+    
+    /**
+     * @Route("/transexuales", name="transexuales")
+     * @Template()
+     */
+    public function transexualesAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $anuncios = $em->getRepository("SiteBundle:Anuncio")->getTrans();
+        return array('anuncios' => $anuncios);
+    }
+    
+    /**
+     * @Route("/dominacion", name="dominacion")
+     * @Template()
+     */
+    public function dominacionAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $anuncios = $em->getRepository("SiteBundle:Anuncio")->getDominacion();
+        return array('anuncios' => $anuncios);
+    }
+    
+    /**
      * @Route("/intro")
      * @Template()
      */

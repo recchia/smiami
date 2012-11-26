@@ -89,7 +89,7 @@ class Anuncio
     private $pago;
     
     /**
-     * @ORM\OneToOne(targetEntity="Usuario", inversedBy="anuncio")
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="anuncio")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
     private $usuario;
