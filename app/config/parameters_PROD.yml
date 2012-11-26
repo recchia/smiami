@@ -1,0 +1,15 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     ~
+    database_name:     smiamirw
+    database_user:     smiamirw
+    database_password: Fr@ncisco555
+
+    mailer_transport:  smtp
+    mailer_host:       smtpout.secureserver.net
+    mailer_user:       admin@mysexymiami.com
+    mailer_password:   admin.myse
+
+    locale:            es
+    secret:            ThisTokenIsNotSoSecretChangeIt
