@@ -73,7 +73,7 @@ class DefaultController extends Controller
      */
     public function introAction()
     {
-        return $this->render('SiteBundle:Default:intro.html.twig');
+        return array();
     }
     
     /**
@@ -84,18 +84,16 @@ class DefaultController extends Controller
     {
         $session = $this->getRequest()->getSession();
         $session->set('intro', true);
-        return $this->render('SiteBundle:Default:reglas.html.twig');
+        return array();
     }
 
     /**
-     * @Route("/reglasreg", name="reglasreg")
+     * @Route("/construccion", name="construccion")
      * @Template()
      */
-    public function reglasregAction()
+    public function construccionAction()
     {
-        $session = $this->getRequest()->getSession();
-        $session->set('intro', true);
-        return $this->render('SiteBundle:Default:reglasreg.html.twig');
+        return array();
     }
     
     /**
@@ -104,7 +102,7 @@ class DefaultController extends Controller
      */
     public function terminosAction()
     {
-        return $this->render('SiteBundle:Default:terminos.html.twig');
+        return array();
     }
 
     /**
@@ -113,7 +111,7 @@ class DefaultController extends Controller
      */
     public function politicasAction()
     {
-        return $this->render('SiteBundle:Default:politicas.html.twig');
+        return array();
     }
     
     /**
@@ -122,7 +120,7 @@ class DefaultController extends Controller
      */
     public function reglascomenAction()
     {
-        return $this->render('SiteBundle:Default:reglascomen.html.twig');
+        return array();
     }
 
     /**
@@ -131,7 +129,7 @@ class DefaultController extends Controller
      */
     public function contactenosAction()
     {
-        return $this->render('SiteBundle:Default:contactenos.html.twig');
+        return array();
     }
 
 }
