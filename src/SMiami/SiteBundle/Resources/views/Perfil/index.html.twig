@@ -1,4 +1,41 @@
 {% extends "::layout.html.twig" %}
 
 {% block content %}
+<div id="reglas">
+    <p>Bienvenid@ <span class="resaltado2">&nbsp;{{ app.user.username }}&nbsp;</span></p>
+    <h3>Mis Anuncios</h3>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Condado</th>
+                <th>Ciudad</th>
+                <th>Sección</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for anuncio in anuncios %}
+            <tr>
+                <td><a href="{# path('anuncio_show', { 'id': anuncio.id }) #}">{{ anuncio.id }}</a></td>
+                <td>{{ anuncio.nombre }}</td>
+                <td>{{ anuncio.condado }}</td>
+                <td>{{ anuncio.ciudad }}</td>
+                <td>{{ anuncio.seccion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{# path('anuncio_show', { 'id': anuncio.id }) #}">show</a>
+                        </li>
+                        <li>
+                            <a href="{# path('anuncio_edit', { 'id': anuncio.id }) #}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

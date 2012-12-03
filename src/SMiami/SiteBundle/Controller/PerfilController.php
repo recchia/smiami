@@ -29,12 +29,9 @@ class PerfilController extends Controller {
      */
     public function indexAction()
     {
-        $session = $this->getRequest()->getSession();
-        if($session->get('intro') == false) {
-            return $this->forward('SiteBundle:Default:intro');
-        }
+        
         $em = $this->getDoctrine()->getEntityManager();
-        $anuncios = $em->getRepository("SiteBundle:Anuncio")->getDamas();
+        $anuncios = $em->getRepository("SiteBundle:Anuncio")->getAnunciosByUser($this->get("security.context")->getToken()->getUser()->getId());
         return array('anuncios' => $anuncios);
     }
 }

@@ -61,4 +61,14 @@ class AnuncioRepository extends EntityRepository
         
         return $consulta->getResult();
     }
+    
+    public function getAnunciosByUser($id)
+    {
+        $em = $this->getEntityManager();
+        
+        $strSQL = "SELECT a.id, a.nombre, co.nombre AS condado, ci.nombre AS ciudad, s.nombre AS seccion FROM SiteBundle:Anuncio a JOIN a.condado co JOIN a.ciudad ci JOIN a.seccion s WHERE a.usuario = $id";
+        $consulta = $em->createQuery($strSQL);
+        
+        return $consulta->getResult();
+    }
 }

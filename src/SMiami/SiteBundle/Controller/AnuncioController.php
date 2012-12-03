@@ -104,7 +104,7 @@ class AnuncioController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('anuncio_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('detalle_show', array('perfil' => $entity->getId())));
         }
 
         return array(
@@ -126,7 +126,7 @@ class AnuncioController extends Controller
         $entity = $em->getRepository('SiteBundle:Anuncio')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Anuncio entity.');
+            throw $this->createNotFoundException('No se encuentra el Anuncio seleccionado.');
         }
 
         $editForm = $this->createForm(new AnuncioType(), $entity);

@@ -43,8 +43,8 @@
                 <li><a href="{{ path("miperfil") }}">MI PERFIL</a></li>
             <li><a href="{{ path("fos_user_security_logout") }}">SALIR</a></li>
             {% else %}
-            <li><a href="{{ path("fos_user_registration_register") }}">REGISTRARSE</a></li>
             <li><a href="{{ path("fos_user_security_login") }}">INGRESAR</a></li>
+            <li><a href="{{ path("fos_user_registration_register") }}">REGISTRARSE</a></li>
             {% endif %}
             <li><a href="{{ path("reglascomen") }}">COMENTARIOS</a></li>
             <li><a href="{{ path("contactenos") }}">CONTÁCTENOS</a></li>
@@ -65,8 +65,8 @@
         <a class="resaltado" href="{{ path("miperfil") }}">&nbsp;MI PERFIL&nbsp;</a>&nbsp;&nbsp;
         <a class="resaltado" href="{{ path("fos_user_security_logout") }}">&nbsp;SALIR&nbsp;</a>&nbsp;&nbsp;
         {% else %}
-        <a class="resaltado" href="{{ path("fos_user_registration_register") }}">&nbsp;REGISTRARSE&nbsp;</a>&nbsp;&nbsp;
         <a class="resaltado" href="{{ path("fos_user_security_login") }}">&nbsp;INGRESAR&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("fos_user_registration_register") }}">&nbsp;REGISTRARSE&nbsp;</a>&nbsp;&nbsp;
         {% endif %}
         <a class="resaltado" href="{{ path("reglascomen") }}">&nbsp;COMENTARIOS&nbsp;</a>&nbsp;&nbsp;
         <a class="resaltado" href="{{ path("contactenos") }}">&nbsp;CONTÁCTENOS&nbsp;</a>&nbsp;&nbsp;
