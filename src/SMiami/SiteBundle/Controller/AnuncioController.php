@@ -227,8 +227,9 @@ class AnuncioController extends Controller
     public function detalleAction($perfil)
     {
         $em = $this->getDoctrine()->getEntityManager();
-        $anuncio = $em->getRepository('SiteBundle:Anuncio')->find($perfil);
-        return array('anuncio' => $anuncio);
+        $anuncio = $em->getRepository('SiteBundle:Anuncio')->getDetalleAnuncio($perfil);
+        $imagenes = $em->getRepository('SiteBundle:Anuncio')->getImagenes($perfil);
+        return array('anuncio' => $anuncio, 'imagenes' => $imagenes);
         
     }
 }

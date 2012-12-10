@@ -71,4 +71,22 @@ class AnuncioRepository extends EntityRepository
         
         return $consulta->getResult();
     }
+    
+    public function getDetalleAnuncio($id)
+    {
+        $em = $this->getEntityManager();
+        $strSQL = "SELECT a.id, a.nombre, a.edad, a.telefono, a.publicar_email as pemail, a.email, a.descripcion, co.nombre AS condado, ci.nombre AS ciudad, s.nombre AS seccion FROM SiteBundle:Anuncio a JOIN a.condado co JOIN a.ciudad ci JOIN a.seccion s WHERE a.id = $id";
+        $consulta = $em->createQuery($strSQL);
+        
+        return $consulta->getOneOrNullResult();
+    }
+    
+    public function getImagenes($id)
+    {
+        $em = $this->getEntityManager();
+        $strSQL = "SELECT i FROM SiteBundle:Imagen i WHERE i.anuncio = $id";
+        $consulta = $em->createQuery($strSQL);
+        
+        return $consulta->getArrayResult();
+    }
 }

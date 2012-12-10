@@ -2,18 +2,18 @@
 
 {% block content %}
 <table id="detalle-anuncio" align="center" class="resaltado">
-    <caption>DAMAS | {{ anuncio.condado }}-{{ anuncio.ciudad }}</caption>
+    <caption>{{ anuncio.seccion }} | {{ anuncio.condado }}-{{ anuncio.ciudad }}</caption>
     <tr>
-        <td><img id="portada" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[0].path) }}" width="400" height="534"/></td>
+        <td><img id="portada" src="{{ asset("uploads/fotos/" ~ imagenes[0].path) }}" width="400" height="534"/></td>
         <td>
             <table>
                 <tr>
-                    <td><img id="thumb1" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[0].path) }}" width="135" height="180"/></td>
-                    <td><img id="thumb2" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[1].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb1" src="{{ asset("uploads/fotos/" ~ imagenes[0].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb2" src="{{ asset("uploads/fotos/" ~ imagenes[1].path) }}" width="135" height="180"/></td>
                 </tr>
                 <tr>
-                    <td><img id="thumb3" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[2].path) }}" width="135" height="180"/></td>
-                    <td><img id="thumb4" src="{{ asset("uploads/fotos/" ~ anuncio.imagenes[3].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb3" src="{{ asset("uploads/fotos/" ~ imagenes[2].path) }}" width="135" height="180"/></td>
+                    <td><img id="thumb4" src="{{ asset("uploads/fotos/" ~ imagenes[3].path) }}" width="135" height="180"/></td>
                 </tr>
             </table>
         </td>
@@ -21,7 +21,7 @@
             <p><span class="detalle_titulo">Nombre:</span> {{ anuncio.nombre }}</p>
             <p><span class="detalle_titulo">Edad:</span> {{ anuncio.edad }}</p>
             <p><span class="detalle_titulo">Teléfono:</span> {{ anuncio.telefono }}</p>
-            {% if(anuncio.PublicarEmail) %}
+            {% if(anuncio.pemail) %}
             <p><span class="detalle_titulo">Email:</span> {{ anuncio.email }}</p>
             {% endif %}
             <p><span class="detalle_titulo">Descripción:</span> {{ anuncio.descripcion }}</p>
