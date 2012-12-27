@@ -24,7 +24,7 @@
             {% if(anuncio.pemail) %}
             <p><span class="detalle_titulo">Email:</span> {{ anuncio.email }}</p>
             {% endif %}
-            <p><span class="detalle_titulo">Descripción:</span> {{ anuncio.descripcion }}</p>
+            <p><span class="detalle_titulo">Descripción:</span> {{ anuncio.descripcion | nl2br }}</p>
         </td>
     </tr>
 </table>

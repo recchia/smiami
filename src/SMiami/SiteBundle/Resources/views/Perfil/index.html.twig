@@ -7,7 +7,6 @@
     <table class="records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nombre</th>
                 <th>Condado</th>
                 <th>Ciudad</th>
@@ -18,7 +17,6 @@
         <tbody>
         {% for anuncio in anuncios %}
             <tr>
-                <td><a href="{# path('anuncio_show', { 'id': anuncio.id }) #}">{{ anuncio.id }}</a></td>
                 <td>{{ anuncio.nombre }}</td>
                 <td>{{ anuncio.condado }}</td>
                 <td>{{ anuncio.ciudad }}</td>
@@ -26,10 +24,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{# path('anuncio_show', { 'id': anuncio.id }) #}">ver</a>
+                            <a href="{{ path('anuncio_show', { 'id': anuncio.id }) }}">ver</a>
                         </li>
                         <li>
-                            <a href="{# path('anuncio_edit', { 'id': anuncio.id }) #}">editar</a>
+                            <a href="{{ path('anuncio_edit', { 'id': anuncio.id }) }}">editar</a>
                         </li>
                     </ul>
                 </td>

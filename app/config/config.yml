@@ -65,7 +65,7 @@ fos_user:
     user_class: SMiami\SiteBundle\Entity\Usuario
     registration:
         confirmation:
-            enabled:    false
+            enabled:    true
     from_email:
         address:        mysexymiami@yahoo.com
         sender_name:    MySexyMiami
@@ -76,9 +76,7 @@ services:
         arguments: ["@doctrine.orm.entity_manager"]
         tags:
             - { name: form.type, alias: anuncio_selector }
-
-avalanche_imagine:
-    filters:
-        my_thumb:
-            type:    thumbnail
-            options: { size: [120, 90], mode: outbound }
+    twig.extension.txt:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }

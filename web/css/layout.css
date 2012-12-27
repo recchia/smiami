@@ -93,6 +93,25 @@ body {
     font-style: italic;
 }
 
+.records_list a {
+    color: #fc2089 !important;
+}
+
+.record_actions a {
+    color: #fc2089 !important;
+}
+
+.record_actions li {
+    display: inline-block;
+}
+
+.record_properties {
+    width: 80%;
+    text-align: justify;
+    background: #ffffff;
+    padding: 1em;
+}
+
 .resaltado2 {
     background-color: #ff00ff;
     color: #ffffff;
