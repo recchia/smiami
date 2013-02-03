@@ -98,6 +98,11 @@ class Anuncio
      * @ORM\OneToMany(targetEntity="Imagen", mappedBy="anuncio", cascade={"persist","remove"})
      */
     private $imagenes;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Comentario", mappedBy="anuncio", cascade={"persist","remove"})
+     */
+    private $comentarios;
 
         /**
      * Constructor
@@ -405,5 +410,38 @@ class Anuncio
     public function getPublicarEmail()
     {
         return $this->publicar_email;
+    }
+
+    /**
+     * Add comentarios
+     *
+     * @param \SMiami\SiteBundle\Entity\Comentario $comentarios
+     * @return Anuncio
+     */
+    public function addComentario(\SMiami\SiteBundle\Entity\Comentario $comentarios)
+    {
+        $this->comentarios[] = $comentarios;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comentarios
+     *
+     * @param \SMiami\SiteBundle\Entity\Comentario $comentarios
+     */
+    public function removeComentario(\SMiami\SiteBundle\Entity\Comentario $comentarios)
+    {
+        $this->comentarios->removeElement($comentarios);
+    }
+
+    /**
+     * Get comentarios
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComentarios()
+    {
+        return $this->comentarios;
     }
 }

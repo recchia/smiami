@@ -197,7 +197,7 @@ class AnuncioController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('anuncio'));
+        return $this->redirect($this->generateUrl('miperfil'));
     }
 
     private function createDeleteForm($id)

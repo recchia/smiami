@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="es" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>DAMAS</source>
+                <target>GIRLS</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>TRANSEXUALES</source>
+                <target>SHEMALE</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>DOMINACIÓN Y FETICHISMO</source>
+                <target>DOMINATION/FETISH</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>CABALLEROS</source>
+                <target>MALE</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>MI PERFIL</source>
+                <target>PROFILE</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>SALIR</source>
+                <target>LOGOUT</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>INGRESAR</source>
+                <target>LOGIN</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>REGISTRARSE</source>
+                <target>SIGN UP</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>COMENTARIOS</source>
+                <target>REVIEWS</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>CONTÁCTENOS</source>
+                <target>CONTACT US</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

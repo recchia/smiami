@@ -22,7 +22,8 @@ class AnuncioType extends AbstractType
             ->add('ciudad')
             ->add('pago')
             ->add('imagenes', 'collection', array(
-                'type' => new ImagenType()
+                'type' => new ImagenType(),
+                'allow_delete' => true
                 ))
         ;
     }

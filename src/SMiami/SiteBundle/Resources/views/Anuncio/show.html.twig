@@ -1,7 +1,7 @@
 {% extends "::layout.html.twig" %}
 
 {% block content %}
-<h1>Anuncio</h1>
+<h2>Anuncio</h2>
 
 <table class="record_properties">
     <tbody>
@@ -24,9 +24,18 @@
     </tbody>
 </table>
 
+<h2>Imagenes</h2>
+<ul class="record_actions">
+    {% for imagen in entity.imagenes %}
+        <li>
+            <img src="{{ asset("uploads/fotos/" ~ imagen.path) }}" width="135" height="180"/>
+        </li>
+    {% endfor %}
+</ul>
+
 <ul class="record_actions">
     <li>
-        <a href="{{ path('anuncio') }}">
+        <a href="{{ path('miperfil') }}">
             Volver al Perfil
         </a>
     </li>

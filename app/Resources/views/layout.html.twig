@@ -30,24 +30,24 @@
 </div>
 <div id="menu">
         <ul>
-            <li><a href="{{ path("home") }}">DAMAS</a></li>
+            <li><a href="{{ path("home") }}">{{ "DAMAS" | trans }}</a></li>
             <li><a href="{{ path("spa") }}">SPA / BODY RUBS</a></li>
-            <li><a href="{{ path("transexuales") }}">TRANSEXUALES</a></li>
-            <li><a href="{{ path("dominacion") }}">DOMINACIÓN Y FETICHISMO</a></li>
-            <li><a href="{{ path("caballeros") }}">CABALLEROS</a></li>
+            <li><a href="{{ path("transexuales") }}">{{ "TRANSEXUALES" | trans }}</a></li>
+            <li><a href="{{ path("dominacion") }}">{{ "DOMINACIÓN Y FETICHISMO" | trans }}</a></li>
+            <li><a href="{{ path("caballeros") }}">{{ "CABALLEROS" | trans }}</a></li>
         </ul>
 </div>
 <div id="menu2">
         <ul>
             {% if is_granted('ROLE_USER') %}
-                <li><a href="{{ path("miperfil") }}">MI PERFIL</a></li>
-            <li><a href="{{ path("fos_user_security_logout") }}">SALIR</a></li>
+                <li><a href="{{ path("miperfil") }}">{{ "MI PERFIL" | trans }}</a></li>
+            <li><a href="{{ path("fos_user_security_logout") }}">{{ "SALIR" | trans }}</a></li>
             {% else %}
-            <li><a href="{{ path("fos_user_security_login") }}">INGRESAR</a></li>
-            <li><a href="{{ path("fos_user_registration_register") }}">REGISTRARSE</a></li>
+            <li><a href="{{ path("fos_user_security_login") }}">{{ "INGRESAR" | trans }}</a></li>
+            <li><a href="{{ path("fos_user_registration_register") }}">{{ "REGISTRARSE" | trans }}</a></li>
             {% endif %}
-            <li><a href="{{ path("reglascomen") }}">COMENTARIOS</a></li>
-            <li><a href="{{ path("contactenos") }}">CONTÁCTENOS</a></li>
+            <li><a href="{{ path("reglascomen") }}">{{ "COMENTARIOS" | trans }}</a></li>
+            <li><a href="{{ path("contactenos") }}">{{ "CONTÁCTENOS" | trans }}</a></li>
         </ul>
 </div>
 {% endblock%}
@@ -72,6 +72,12 @@
         <a class="resaltado" href="{{ path("contactenos") }}">&nbsp;CONTÁCTENOS&nbsp;</a>&nbsp;&nbsp;
         <a class="resaltado" href="{{ path("terminos") }}">&nbsp;TÉRMINOS DE USO&nbsp;</a>&nbsp;&nbsp;
         <a class="resaltado" href="{{ path("politicas") }}">&nbsp;POLÍTICAS DE PRIVACIDAD&nbsp;</a>&nbsp;&nbsp;
+        {% set locale = app.request.locale %}
+        {% if locale == 'es' %}
+        <span>Español</span>&nbsp;&nbsp;<a class="resaltado" href="{{ path("home", {"_locale" : "en"}) }}">&nbsp;English&nbsp;</a>
+        {% elseif locale == 'en' %}
+        <a class="resaltado" href="{{ path("home", {"_locale" : "es"}) }}">&nbsp;Español&nbsp;</a>&nbsp;&nbsp;<span>English</span>
+        {% endif %}
     </div>
         
     <p>
