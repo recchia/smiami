@@ -20,9 +20,9 @@ security:
             anonymous:    true
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(es|en)/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(es|en)/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(es|en)/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(es|en)/admin/, role: ROLE_ADMIN }
         - { path: ^/(es|en)/anuncio/detalle, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/(es|en)/anuncio, role: ROLE_USER }

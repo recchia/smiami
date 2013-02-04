@@ -4,25 +4,38 @@ site:
     prefix:   /{_locale}
     requirements:
       _locale: es|en
+    defaults:
+        _locale: es
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix:   /{_locale}
+    requirements:
+      _locale: es|en
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+    prefix: /{_locale}/profile
+    requirements:
+      _locale: es|en
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+    prefix: /{_locale}/register
+    requirements:
+      _locale: es|en
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
+    prefix: /{_locale}/resetting
+    requirements:
+      _locale: es|en
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+    prefix: /{_locale}/profile
+    requirements:
+      _locale: es|en
 
 # Internal routing configuration to handle ESI
 #_internal:

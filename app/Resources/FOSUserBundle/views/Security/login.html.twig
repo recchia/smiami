@@ -4,10 +4,15 @@
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
+    {% set locale = app.request.locale %}
+    {% if locale == 'es' %}
     <p class="resaltado">Si no posee usuario y contraseña <a style="color: #9100B2;" href="{{ path("fos_user_registration_register") }}">registrese aquí</a></p>
+    {% elseif locale == 'en' %}
+    <p class="resaltado">If you have no username and password <a style="color: #9100B2;" href="{{ path("fos_user_registration_register") }}">register here</a></p>
+    {% endif %}
 <form action="{{ path("fos_user_security_check") }}" method="post">
     <fieldset>
-        <legend>Datos de Ingreso</legend>
+        <legend>{{ "Datos de Ingreso" | trans }}</legend>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
             <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
@@ -20,7 +25,7 @@
             <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 
             <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-            <p><a style="color: #9100B2;" href="{{ path("fos_user_resetting_request") }}">Recuperar Contraseña</a></p>
+            <p><a style="color: #9100B2;" href="{{ path("fos_user_resetting_request") }}">{{ "Recuperar Contraseña" | trans }}</a></p>
     </fieldset>
 </form>
 {% endblock fos_user_content %}

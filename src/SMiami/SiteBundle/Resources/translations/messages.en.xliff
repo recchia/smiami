@@ -42,6 +42,26 @@
                 <source>CONTÁCTENOS</source>
                 <target>CONTACT US</target>
             </trans-unit>
+            <trans-unit id="11">
+                <source>TÉRMINOS Y CONDICIONES DE USO</source>
+                <target>TERMS AND CONDITIONS OF USE</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>POLÍTICAS DE PRIVACIDAD</source>
+                <target>PRIVACY POLICY</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>SOY TU SECRETO ONLINE</source>
+                <target>YOUR ONLINE SECRET</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Datos de Ingreso</source>
+                <target>Login Form</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Recuperar Contraseña</source>
+                <target>Request Password</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

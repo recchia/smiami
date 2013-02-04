@@ -16,7 +16,7 @@
 <div id="slogan">
     <p>
     <a href="{{ path("anuncio_reglas") }}" alt="Poner un Ad" title="Poner un Ad"><div style="position:absolute; top:14%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" /></div></a>
-    SOY TU SECRETO ONLINE...
+    {{ "SOY TU SECRETO ONLINE" | trans }}...
     <a href="http://mibellivenezolana.blogspot.com/" target="_blank" alt="LEE AQUÍ; Blogs, Fantasías y algo más..." title="LEE AQUÍ; Blogs, Fantasías y algo más..."><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" /></div></a>
     </p>
 </div>
@@ -62,16 +62,16 @@
     <div id="menupie">
         
         {% if is_granted('ROLE_USER') %}
-        <a class="resaltado" href="{{ path("miperfil") }}">&nbsp;MI PERFIL&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltado" href="{{ path("fos_user_security_logout") }}">&nbsp;SALIR&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("miperfil") }}">&nbsp;{{ "MI PERFIL" | trans }}&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("fos_user_security_logout") }}">&nbsp;{{ "SALIR" | trans }}&nbsp;</a>&nbsp;&nbsp;
         {% else %}
-        <a class="resaltado" href="{{ path("fos_user_security_login") }}">&nbsp;INGRESAR&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltado" href="{{ path("fos_user_registration_register") }}">&nbsp;REGISTRARSE&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("fos_user_security_login") }}">&nbsp;{{ "INGRESAR" | trans }}&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("fos_user_registration_register") }}">&nbsp;{{ "REGISTRARSE" | trans }}&nbsp;</a>&nbsp;&nbsp;
         {% endif %}
-        <a class="resaltado" href="{{ path("reglascomen") }}">&nbsp;COMENTARIOS&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltado" href="{{ path("contactenos") }}">&nbsp;CONTÁCTENOS&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltado" href="{{ path("terminos") }}">&nbsp;TÉRMINOS DE USO&nbsp;</a>&nbsp;&nbsp;
-        <a class="resaltado" href="{{ path("politicas") }}">&nbsp;POLÍTICAS DE PRIVACIDAD&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("reglascomen") }}">&nbsp;{{ "COMENTARIOS" | trans }}&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("contactenos") }}">&nbsp;{{ "CONTÁCTENOS" | trans }}&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("terminos") }}">&nbsp;{{ "TÉRMINOS Y CONDICIONES DE USO" | trans }}&nbsp;</a>&nbsp;&nbsp;
+        <a class="resaltado" href="{{ path("politicas") }}">&nbsp;{{ "POLÍTICAS DE PRIVACIDAD" | trans }}&nbsp;</a>&nbsp;&nbsp;
         {% set locale = app.request.locale %}
         {% if locale == 'es' %}
         <span>Español</span>&nbsp;&nbsp;<a class="resaltado" href="{{ path("home", {"_locale" : "en"}) }}">&nbsp;English&nbsp;</a>
@@ -79,12 +79,17 @@
         <a class="resaltado" href="{{ path("home", {"_locale" : "es"}) }}">&nbsp;Español&nbsp;</a>&nbsp;&nbsp;<span>English</span>
         {% endif %}
     </div>
-        
+    {% if locale == 'es' %}    
     <p>
         <span class="resaltado">MYSEXYMIAMI.COM</span>  es exclusivamente un Directorio de avisos foto-clasificados Online.
         Todo el contenido de los avisos foto-clasificados es de única y exclusiva responsabilidad de los anunciantes y de ninguna manera la empresa conoce, participa o interfiere en forma o manera alguna en las actividades que estos realizan. 
         La empresa no se hace responsable por la veracidad, fidelidad, o legalidad del contenido de los avisos foto-clasificados. <span class="resaltado">MYSEXYMIAMI.COM</span>  es para uso exclusivo de personas mayores de edad.  Todos los derechos reservados 2012.
-    </p>   
+    </p>
+    {% elseif locale == 'en' %}
+    <p>
+        <span class="resaltado">MYSEXYMIAMI.COM</span> is only a directory of photo-classified ads Online. All content of photo-classified ads is the  exclusive responsibility of advertisers. The company ( MYSEXYMIAMI.COM AND ITS AFFILIATES OR OWNERS) NOT knows, participate or interfere in any manner or form on the activities that they (advertisers) perform. The company ( MYSEXYMIAMI.COM AND ITS AFFILIATES OR OWNERS) is not responsible for the truthfulness, accuracy, or legality of the content of the photo-classified ads. <span class="resaltado">MYSEXYMIAMI.COM</span> is a website EXCLUSIVELY FOR ADULTS. All rights reserved 2012.
+    </p>
+    {% endif %}
 </div>
 {% endblock %}
 
