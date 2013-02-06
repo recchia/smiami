@@ -3,9 +3,9 @@ site:
     type:     annotation
     prefix:   /{_locale}
     requirements:
-      _locale: es|en
+      _locale: en|es
     defaults:
-        _locale: es
+      _locale: es
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

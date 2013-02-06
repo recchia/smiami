@@ -68,7 +68,8 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/intro", name="intro")
+     * 
+     * @Route("/intro", name="intro") 
      * @Template()
      */
     public function introAction()
