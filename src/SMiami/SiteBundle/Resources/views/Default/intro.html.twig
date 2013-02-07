@@ -18,6 +18,8 @@
 
 {% block content %}
 <div id="reglas">
+{% set locale = app.request.locale %}
+{% if locale == 'es' %}
     <p class="intro cursiva">
         <span class="negrita">THIS IS A CLASSIFIED ADS WEBSITE FOR ADULTS ONLY</span><br/><br/>
 <span class="negrita resaltado2">REGLAS, NORMAS Y USO PARA PODER ENTRAR A</span> &nbsp; <span class="resaltado">MYSEXYMIAMI.COM</span>
@@ -35,11 +37,30 @@
 <span class="negrita resaltado2">haciendo click en el siguiente link:</span>
 </p><br/>
 
+{% elseif locale == 'en' %}
+    <p class="intro cursiva">
+        <span class="negrita">THIS IS A CLASSIFIED ADS WEBSITE FOR ADULTS ONLY</span><br/><br/>
+<span class="negrita resaltado2">RULES, REGULATIONS AND TERMS OF USE TO ENTER TO </span> &nbsp; <span class="resaltado">MYSEXYMIAMI.COM</span>
+<br/><br/>
+<span class="negrita resaltado2">MANDATORY</span>
+<br/><br/>
+<span class="negrita">THIS IS THE MOST COMPLETE ONLINE DIRECTORY OF ENTERTAINMENT OF SOUTH FLORIDA, </span>
+<br/>
+<span class="negrita resaltado2">EXCLUSIVELY FOR ADULTS.</span>
+<br/>
+<span class="negrita">YOU HAVE TO MEET THE FOLLOWING TO VISIT OUR WEBSITE:</span>
+<br/><br/> 
+<span class="negrita resaltado2">IF YOU ARE UNDER 18 YEARS OLD OR YOU NOT ARE IN LEGAL AGE IN THE PHYSICAL LOCATION FROM WHERE YOU ARE ACCESSING THIS SITE, without exception, YOU MUST EXIT OF THIS SITE IMMEDIATLY
+by clicking the following link: EXIT,</span>
+<br/>
+</p><br/>
+
+{% endif %}
 <table style="margin: auto; text-align: center">
     <tr>
         <td>
-            <span class="boton" style="background-color: #FF1A96;"><a href="http://www.google.co.ve">SALIR</a></span>
-            <span class="boton" style="background-color: #FF1A96;"><a href="{{ path("reglas") }}">CONTINUAR</a></span>
+            <span class="boton" style="background-color: #FF1A96;"><a href="http://www.google.co.ve">{{ "SALIR" | trans }}</a></span>
+            <span class="boton" style="background-color: #FF1A96;"><a href="{{ path("reglas") }}">{{ "CONTINUAR" | trans }}</a></span>
         </td>
     </tr>
     <tr>
@@ -54,11 +75,18 @@
 {% endblock %}
 
 {% block footer %}
-<div id="footer">      
+<div id="footer">
+    {% set locale = app.request.locale %}
+    {% if locale == 'es' %}    
     <p>
         <span class="resaltado">MYSEXYMIAMI.COM</span>  es exclusivamente un Directorio de avisos foto-clasificados Online.
         Todo el contenido de los avisos foto-clasificados es de única y exclusiva responsabilidad de los anunciantes y de ninguna manera la empresa conoce, participa o interfiere en forma o manera alguna en las actividades que estos realizan. 
         La empresa no se hace responsable por la veracidad, fidelidad, o legalidad del contenido de los avisos foto-clasificados. <span class="resaltado">MYSEXYMIAMI.COM</span>  es para uso exclusivo de personas mayores de edad.  Todos los derechos reservados 2012.
-    </p>   
+    </p>
+    {% elseif locale == 'en' %}
+    <p>
+        <span class="resaltado">MYSEXYMIAMI.COM</span> is only a directory of photo-classified ads Online. All content of photo-classified ads is the  exclusive responsibility of advertisers. The company ( MYSEXYMIAMI.COM AND ITS AFFILIATES OR OWNERS) NOT knows, participate or interfere in any manner or form on the activities that they (advertisers) perform. The company ( MYSEXYMIAMI.COM AND ITS AFFILIATES OR OWNERS) is not responsible for the truthfulness, accuracy, or legality of the content of the photo-classified ads. <span class="resaltado">MYSEXYMIAMI.COM</span> is a website EXCLUSIVELY FOR ADULTS. All rights reserved 2012.
+    </p>
+    {% endif %}
 </div>
 {% endblock %}

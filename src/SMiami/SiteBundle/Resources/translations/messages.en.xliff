@@ -62,6 +62,14 @@
                 <source>Recuperar Contraseña</source>
                 <target>Request Password</target>
             </trans-unit>
+            <trans-unit id="16">
+                <source>SALIR</source>
+                <target>EXIT</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>CONTINUAR</source>
+                <target>CONTINUE</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
