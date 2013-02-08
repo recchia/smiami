@@ -9,7 +9,7 @@
 </div>
 <div id="slogan">
     <p>   
-    SOY TU SECRETO ONLINE...
+    {{ "SOY TU SECRETO ONLINE" | trans }}...
     </p>
 </div>
 {% endblock %}
@@ -17,6 +17,8 @@
 {% block menu %}{% endblock %}
 
 {% block content %}
+{% set locale = app.request.locale %}
+{% if locale == 'es' %}
 <div id="reglas" style="color: #FF1A96; font-style: italic; line-height: 1.4em;">
     <p>Antes de ingresar a la página de <span class="resaltado">MYSEXYMIAMI.COM</span>   usted debe leer atentamente los siguientes Términos y Condiciones:</p>
 
@@ -53,9 +55,39 @@ Es responsabilidad de la parte interesada hacer las averiguaciones correspondien
         <li>Los creadores y los propietarios de la página de <span class="resaltado">MYSEXYMIAMI.COM</span>   , así como nuestro proveedor de servicio, aportan las normas aquí señaladas, liberándose así como consecuencia de acción u omisión de los usuarios, de toda obligación y/o responsabilidad legal.</li>
     </ol>
 </div>
+{% elseif locale == 'en' %}
+<div id="reglas" style="color: #FF1A96; font-style: italic; line-height: 1.4em;">
+    <p>Before joining to <span class="resaltado">MYSEXYMIAMI.COM</span> you must read carefully the following Terms and Conditions:</p>
+
+    <p>Visiting <span class="resaltado">MYSEXYMIAMI.COM</span>  you agree the Terms and Conditions established here. If you do NOT agree, do NOT enter or use this page to post products, transactions and / or navigate here.</p>
+
+    <dl>
+        <dt>1.-PROHIBITED ACCESS TO MINORS.-</dt>
+        <dd>In the website <span class="resaltado">MYSEXYMIAMI.COM</span> offered products and services with content (text and photographs) is exclusively for adults. You have to be at least 18 years older to visit this website. The access of minors to this page, are only and  exclusively responsibility of parents, representatives or guardians. It is the obligation of parents to guide the behavior of their minor children controlling or preventing access to this site through safety as Surf Watch, Net Nanny or Cyber Patrol and properly educating them to respect the nature of these pages.</dd>
+<dt>2.-PROHIBITED SERVICES.-</dt>
+<dd><span class="resaltado">MYSEXYMIAMI.COM</span> respects the prohibition of the supply and demand of items or services: Involve child pornography, child prostitution, child sexual exploitation or include the words in the singular or plural of "child", " child "and / or" adolescent "and / or submit apology to violence or crime, and / or incite discrimination, hatred or racism.</dd>
+<dt>3.-LIMITATION OF LIABILITY FOR CONTENT.-</dt>
+<dd><span class="resaltado">MYSEXYMIAMI.COM</span> is exclusively an website  of ADD CLASSIFIED EXCLUSIVELY FOR ADULT, therefore the responsibility of the website <span class="resaltado">MYSEXYMIAMI.COM</span> only limited to post adds paid by their clients "customers".  Strictly all content of the messages (text and photographs) published in <span class="resaltado">MYSEXYMIAMI.COM</span> are only responsibility of the poster, client or customer. <span class="resaltado">MYSEXYMIAMI.COM</span> NOT  knows, participate or interfere in the activities of the advertiser. The company is NOT responsible for the accuracy, truthfulness, accuracy or legality of the content of the ads. It is the responsibility of the  poster, client or customer to make the necessary inquiries about the origin, characteristics, condition, operation and other inherent properties of the services offered by advertisers.</dd>
+</dl>
+    <p><span class="resaltado">MYSEXYMIAMI.COM</span> doesn´t have any relationship natural or legal with the persons that are advertised here. It is the exclusive responsibility of the poster, client or customer of service offered. Consequently, the poster, client or customer will be responsible of all payments of their adds. Neither <span class="resaltado">MYSEXYMIAMI.COM</span>, or creators or their designers, or their owners are responsible for any payments, liability or obligation that have to pay any of their advertisers.  When you put an add in this website you is accepting and the user agrees with the above and exonerates to <span class="resaltado">MYSEXYMIAMI.COM</span> from any liability that may arise from transactions originated at this website. Consequently I declare that:</p>
+
+    <ol>
+        <li>I have over 18 years and I have the legal capacity to acquire, purchase and hiring the services offered on this page.</li>
+        <li>Not allow access to any person under 18 years to website <span class="resaltado">MYSEXYMIAMI.COM</span>  or any products here published.</li>
+        <li>The user of <span class="resaltado">MYSEXYMIAMI.COM</span> understand and accept responsibility for your own actions and behaviors and those of their children.</li>
+        <li>Join of <span class="resaltado">MYSEXYMIAMI.COM</span>  for my personal and voluntary decision, because I want to visit, hiring, offering, provide, buy or sell products or services here published. With my voluntary declaration not consider offensive or damaging the images or messages that I found in <span class="resaltado">MYSEXYMIAMI.COM</span></li>
+        <li>I am exclusively responsible for the legality of products, and / or services that I acquire, buy in this website. And release to <span class="resaltado">MYSEXYMIAMI.COM</span> from all liability related to the accuracy, truthfulness, or legality of the content of the ads.</li>
+        <li>I understand and agree that <span class="resaltado">MYSEXYMIAMI.COM</span>  only provides an advertising service.</li>
+        <li>I do not consider offensive or harmful images and messages that may be found on the website <span class="resaltado">MYSEXYMIAMI.COM</span></li>
+        <li>The company reserves the right to allow or not to publish u offer any services at this website.</li>
+        <li>The design of these pages are the exclusive properties and absolute creators <span class="resaltado">MYSEXYMIAMI.COM</span>  and it can never be used without prior written authorization of their owners.</li>
+        <li>The creators and owners <span class="resaltado">MYSEXYMIAMI.COM</span>  and our service provider, provide the rules described here. Liberating from any obligation and / or liability legal.</li>
+    </ol>
+</div>
+{% endif %}
 <table align="center">
     <tr>
-        <td><span class="boton" style="background-color: #FF1A96;"><a href="{{ path("home") }}">Entrar</a></span></td>
+        <td><span class="boton" style="background-color: #FF1A96;"><a href="{{ path("home") }}">{{ "ENTRAR" | trans }}</a></span></td>
     </tr>
 </table>
 <br />
@@ -63,11 +95,18 @@ Es responsabilidad de la parte interesada hacer las averiguaciones correspondien
 
 {% block footer %}
 <div id="footer">      
+    {% set locale = app.request.locale %}
+    {% if locale == 'es' %}    
     <p>
         <span class="resaltado">MYSEXYMIAMI.COM</span>  es exclusivamente un Directorio de avisos foto-clasificados Online.
         Todo el contenido de los avisos foto-clasificados es de única y exclusiva responsabilidad de los anunciantes y de ninguna manera la empresa conoce, participa o interfiere en forma o manera alguna en las actividades que estos realizan. 
         La empresa no se hace responsable por la veracidad, fidelidad, o legalidad del contenido de los avisos foto-clasificados. <span class="resaltado">MYSEXYMIAMI.COM</span>  es para uso exclusivo de personas mayores de edad.  Todos los derechos reservados 2012.
-    </p>   
+    </p>
+    {% elseif locale == 'en' %}
+    <p>
+        <span class="resaltado">MYSEXYMIAMI.COM</span> is only a directory of photo-classified ads Online. All content of photo-classified ads is the  exclusive responsibility of advertisers. The company ( MYSEXYMIAMI.COM AND ITS AFFILIATES OR OWNERS) NOT knows, participate or interfere in any manner or form on the activities that they (advertisers) perform. The company ( MYSEXYMIAMI.COM AND ITS AFFILIATES OR OWNERS) is not responsible for the truthfulness, accuracy, or legality of the content of the photo-classified ads. <span class="resaltado">MYSEXYMIAMI.COM</span> is a website EXCLUSIVELY FOR ADULTS. All rights reserved 2012.
+    </p>
+    {% endif %}  
 </div>
 {% endblock %}
 
