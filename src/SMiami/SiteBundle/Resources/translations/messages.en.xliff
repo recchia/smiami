@@ -74,6 +74,14 @@
                 <source>ENTRAR</source>
                 <target>ENTER</target>
             </trans-unit>
+            <trans-unit id="19">
+                <source>Sección de Comentarios</source>
+                <target>Comments / Reviews Section</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>Advertencia</source>
+                <target>Warning</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

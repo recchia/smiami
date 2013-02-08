@@ -2,10 +2,10 @@ site:
     resource: "@SiteBundle/Controller/"
     type:     annotation
     prefix:   /{_locale}
-    requirements:
-      _locale: en|es
     defaults:
       _locale: es
+    requirements:
+      _locale: en|es
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

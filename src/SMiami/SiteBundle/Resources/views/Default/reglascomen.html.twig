@@ -10,7 +10,7 @@
 <div id="slogan" style="background-color: #FF2AD7;">
     <p>
     <a href="{{ path("anuncio_reglas") }}" alt="Poner un Ad" title="Poner un Ad"><div style="position:absolute; top:14%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" /></div></a>
-    SOY TU SECRETO ONLINE...
+    {{ "SOY TU SECRETO ONLINE" | trans }}...
     <a href="http://mibellivenezolana.blogspot.com/" target="_blank" alt="LEE AQUÍ; Blogs, Fantasías y algo más..." title="LEE AQUÍ; Blogs, Fantasías y algo más..."><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" /></div></a>
     </p>
 </div>
@@ -20,14 +20,17 @@
 {% block content %}
 <div id="reglas" style="color: #FF2AD7;">
    
-    <p align="center"><span class="titulocomentarios">Sección de Comentarios</span></p>
-    
-    <p>En este directorio online tienes la oportunidad de buscar los comentarios acerca de las damas o spa que  te interesan. Podrás leer y opinar  acerca de los servicios, su trato y también podrás chequear si la chica es realmente la foto, si su servicio es en casa u hotel, positivo o negativo, en fin antes de llamar para pedir alguna información  tienes la oportunidad de averiguar un poco acerca de lo que te interesa y así te sentirás más seguro al momento de pedir tu servicio.<p>
-
-    <p align="center"><span class="titulocomentarios">Advertencia</span></p>
-    
+    <p align="center"><span class="titulocomentarios">{{ "Sección de Comentarios" | trans }}</span></p>
+    {% set locale = app.request.locale %}
+    {% if locale == 'es' %}
+        <p>En este directorio online tienes la oportunidad de buscar los comentarios acerca de las damas o spa que  te interesan. Podrás leer y opinar  acerca de los servicios, su trato y también podrás chequear si la chica es realmente la foto, si su servicio es en casa u hotel, positivo o negativo, en fin antes de llamar para pedir alguna información  tienes la oportunidad de averiguar un poco acerca de lo que te interesa y así te sentirás más seguro al momento de pedir tu servicio.<p>
+    {% elseif locale == 'en' %}
+        <p>In this online directory you have the opportunity to look feedback and reviews about the ladies, spas, trans… or other topic that interest you. You can read and comment in general about the services or how was your experience... 
+You can also check if the girl is really 100% real. if the service is at home or hotel, positive or negative, in order before calling to request any information you have the opportunity to find out a little about what interests you and so you feel more confident when you ask your service.</p>
+    {% endif %}
+    <p align="center"><span class="titulocomentarios">{{ "Advertencia" | trans }}</span></p>
+    {% if locale == 'es' %}
     <p>En esta sección solo podrás comentar <span class="subrayado">exclusivamente sobre los servicios y o personas que están anunciados aquí.</span> Pues se prohíbe escribir sobre personas o negocios ajenos a este directorio de clasificados online para adultos. <span class="subrayado">Esta página se reserva el derecho de excluir, eliminar y borrar cualquier comentario, opinión, o palabra que se considere fuera de la ley, prohibida, obscena o que exceda los límites del objetivo de esta sección y de este directorio de clasificados online para adultos.</span></p>
-    
     <p style="font-size:16px">Reglas para ser parte y usar la sección de comentarios de <span class="resaltado">MYSEXYMIAMI.COM</span></p>
     
     <ol>
@@ -41,8 +44,23 @@
     </ol>
 
     <p>Así pues te invitamos a que leas y te registres cuando lo desees para que compartas tu experiencia, opines sobre las chicas o los spa aquí publicados, y califiques el servicio de malo o bueno, para que así otras personas interesadas puedan guiarse un poco antes de llamar.</p>
-   
-    <p align="left"><span class="boton" style="background-color: #FF2AD7"><a href="{{ path("comentario") }}">Continuar</a></span>
+    {% elseif locale == 'en' %}
+    <p>In this section you can only comment <span class="subrayado">of the services or persons that are posted here.</span> Well prohibits write about people or businesses outside this directory online classifieds for adults. <span class="subrayado">This site reserves the right to exclude, remove or delete any comment, opinion, or word that is considered unlawful, prohibited, obscene or exceeding the limits of the purpose of this section of this directory and online classifieds for adults.</span></p>
+    <p style="font-size:16px">Rules to be part and use the Comments/Reviews Section <span class="resaltado">MYSEXYMIAMI.COM</span></p>
+    
+    <ol>
+        <li>You must register first to be able to write and share your experience, you must create a user name and password (this register is completely free and private) read and write anything you want.</li>
+        <br />        
+        <li>This reviews section is being constantly checked and monitored by our staff, to avoid profanity, vulgarity, or comments inappropriate, that instead of helping and guiding the user in the search, however detrimental to advertisers published here or general readers .</li>
+        <br />
+        <li>You must be over 18 to read, register and comment about girls or spa here announced. Once you accept and you have registered, you understand and agree that you are an adult and can therefore be part and use this section.</li>
+        <br />
+        <li>Your integrity, security and privacy in the online directory is guaranteed because <span class="resaltado">MYSEXYMIAMI.COM</span>  not keep, store or share any personal information with any entity or any government personnel. <span class="subrayado">For us, discretion and privacy is first of all.</span></li>
+    </ol>
+
+    <p>So we invite you to read and you register when you want to share your experience, opines about girls or spas published here, and qualify the service good or bad, so that other interested persons to be guided a little before calling.</p>
+    {% endif %}
+    <p align="left"><span class="boton" style="background-color: #FF2AD7"><a href="{{ path("comentario") }}">{{ "CONTINUAR" | trans }}</a></span>
     <br/></p>
 
 </div>            

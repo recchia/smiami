@@ -3,6 +3,8 @@
 {% block content %}
             
 <div id="reglas" style="color: #FF1A96; font-style: italic; line-height: 1.4em;">
+    {% set locale = app.request.locale %}
+    {% if locale == 'es' %}
     <ol>
         <li>Hola, todos y todas son bienvenidos a <span class="resaltado">MYSEXYMIAMI.COM</span> si deseas contactarnos puedes hacerlo enviándonos un e-mail a: <span class='subrayado' style='color:blue'>admin@mysexymiami.com</span>.</li>
         <br />    
@@ -18,7 +20,23 @@
         <br />
         <li>Recibiremos las preguntas y haremos todo lo posible de responder en un horario comprendido entre las 10:00 am y las 6:00 pm de lunes a viernes estrictamente.  Todos los e-mails recibidos durante los fines de semana, serán respondidos el lunes próximo.</li>
     </ol>
-
+    {% elseif locale == 'en' %}
+       <ol>
+        <li>Hello, everyone is welcome to <span class="resaltado">MYSEXYMIAMI.COM</span> To contact us just send an e-mail to: <span class='subrayado' style='color:blue'>admin@mysexymiami.com</span>.</li>
+        <br />    
+            <ul>
+                <li>Your questions will be answered in less than 24 hours.</li>
+                <br />
+                <li>Please do not  to write inappropriate words or terms.</li>
+                <br />
+                <li>We reserve the right to answer any questions that we consider inappropriate or vulgar.</li>
+            </ul>    
+        </li><br />
+        <li>If you have any questions or comments about The Comments / Reviews Section  just send an e-mail to: <span class='subrayado' style='color:blue'>seccioncomentarios@mysexymiami.com</span>.</li>
+        <br />
+        <li>We receive questions and will do possible to respond in a time between 10:00 am and 6:00 pm Monday to Friday strictly. All emails received over the weekend will be answered on Monday.</li>
+    </ol> 
+    {% endif %}
 </div>            
 
 
