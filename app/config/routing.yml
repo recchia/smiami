@@ -1,41 +1,27 @@
 site:
     resource: "@SiteBundle/Controller/"
     type:     annotation
-    prefix:   /{_locale}
-    defaults:
-      _locale: es
-    requirements:
-      _locale: en|es
+    prefix:   /
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix:   /{_locale}
-    requirements:
-      _locale: es|en
+    prefix:   /
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /{_locale}/profile
-    requirements:
-      _locale: es|en
+    prefix: /profile
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /{_locale}/register
-    requirements:
-      _locale: es|en
+    prefix: /register
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /{_locale}/resetting
-    requirements:
-      _locale: es|en
+    prefix: /resetting
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /{_locale}/profile
-    requirements:
-      _locale: es|en
+    prefix: /profile
 
 # Internal routing configuration to handle ESI
 #_internal:

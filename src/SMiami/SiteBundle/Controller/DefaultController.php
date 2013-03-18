@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="home", defaults = {"_locale" = "es"})
+     * @Route("/", name="home")
      * @Template()
      */
     public function indexAction()
@@ -69,7 +69,7 @@ class DefaultController extends Controller
     
     /**
      * 
-     * @Route("/intro", name="intro", defaults = {"_locale" = "es"}) 
+     * @Route("/intro", name="intro") 
      * @Template()
      */
     public function introAction()
