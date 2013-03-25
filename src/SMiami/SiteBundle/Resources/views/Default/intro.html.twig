@@ -6,6 +6,9 @@
     <img src="{{ asset('images/mysexymiami5.png') }}" />
     <img src="{{ asset('images/sm.png') }}" />     
     <img src="{{ asset('images/bocad_11.png') }}" />
+
+<meta name="google-translate-customization" content="2ee800eb1ec6d34-c21772d3924fdf4c-g36f4124f74b59449-13"></meta>
+
 </div>
 <div id="slogan">
     <p>   
@@ -20,8 +23,19 @@
 <div id="reglas">
 {% set locale = app.request.locale %}
 {% if locale == 'es' %}
+  
+  <p align="center"><span class="titulocomentarios">Escoge Aqui El Idioma De Tu Preferencia: ENGLISH or SPANISH</span>
+  <p align="center"><span class="titulocomentarios">Choose Your Language: ENGLISH or SPANISH</span>
+<div id="google_translate_element" align="center"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+</p>
+ 
     <p class="intro cursiva">
-        <span class="negrita">THIS IS A CLASSIFIED ADS WEBSITE FOR ADULTS ONLY</span><br/><br/>
+        <span class="negrita">THIS IS A WEBSITE CLASSIFIED ADS FOR ADULTS ONLY</span><br/><br/>
 <span class="negrita resaltado2">REGLAS, NORMAS Y USO PARA PODER ENTRAR A</span> &nbsp; <span class="resaltado">MYSEXYMIAMI.COM</span>
 <br/><br/>
 <span class="negrita resaltado2">OBLIGATORIO</span>
@@ -32,7 +46,7 @@
 <br/>
 <span class="negrita">POR LO TANTO DEBES CUMPLIR CON LAS SIGUIENTES NORMAS PARA VISITAR NUESTRA PÁGINA</span>
 <br/><br/> 
-<span class="negrita resaltado2">SI ERES MENOR DE 18 AÑOS, sin excepción, debes salir de la página,</span> &nbsp; <span class="resaltado">MYSEXYMIAMI.COM</span>
+<span class="negrita resaltado2">SI ERES MENOR DE 18 AÑOS, SIN EXCEPCION, DEBES EXIT DE ESTE WEBSITE INMEDIATAMENTE,</span> &nbsp; <span class="resaltado">MYSEXYMIAMI.COM</span>
 <br/>
 <span class="negrita resaltado2">haciendo click en el siguiente link:</span>
 </p><br/>
@@ -59,7 +73,7 @@ by clicking the following link: EXIT,</span>
 <table style="margin: auto; text-align: center">
     <tr>
         <td>
-            <span class="boton" style="background-color: #FF1A96;"><a href="http://www.google.co.ve">{{ "SALIR" | trans }}</a></span>
+            <span class="boton" style="background-color: #FF1A96;"><a href="http://www.google.co.ve">{{ "EXIT" | trans }}</a></span>
             <span class="boton" style="background-color: #FF1A96;"><a href="{{ path("reglas") }}">{{ "CONTINUAR" | trans }}</a></span>
         </td>
     </tr>

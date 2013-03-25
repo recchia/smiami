@@ -40,7 +40,7 @@
 <div id="menu2">
         <ul>
             {% if is_granted('ROLE_USER') %}
-                <li><a href="{{ path("miperfil") }}">{{ "MI PERFIL" | trans }}</a></li>
+            <li><a href="{{ path("miperfil") }}">{{ "MI PERFIL" | trans }}</a></li>
             <li><a href="{{ path("fos_user_security_logout") }}">{{ "SALIR" | trans }}</a></li>
             {% else %}
             <li><a href="{{ path("fos_user_security_login") }}">{{ "INGRESAR" | trans }}</a></li>
@@ -48,6 +48,7 @@
             {% endif %}
             <li><a href="{{ path("reglascomen") }}">{{ "COMENTARIOS" | trans }}</a></li>
             <li><a href="{{ path("contactenos") }}">{{ "CONTÁCTENOS" | trans }}</a></li>
+            <li><a href="https://twitter.com/MySexyMiami"><img src="{{ asset('images/twitter10.jpg') }}"/></a><li>
         </ul>
 </div>
 {% endblock%}
@@ -72,19 +73,21 @@
         <a class="resaltado" href="{{ path("contactenos") }}">&nbsp;{{ "CONTÁCTENOS" | trans }}&nbsp;</a>&nbsp;&nbsp;
         <a class="resaltado" href="{{ path("terminos") }}">&nbsp;{{ "TÉRMINOS Y CONDICIONES DE USO" | trans }}&nbsp;</a>&nbsp;&nbsp;
         <a class="resaltado" href="{{ path("politicas") }}">&nbsp;{{ "POLÍTICAS DE PRIVACIDAD" | trans }}&nbsp;</a>&nbsp;&nbsp;
+        <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
         {% set locale = app.request.locale %}
         {% if locale == 'es' %}
-        <span>Español</span>&nbsp;&nbsp;<a class="resaltado" href="{{ path("home", {"_locale" : "en"}) }}">&nbsp;English&nbsp;</a>
-        {% elseif locale == 'en' %}
-        <a class="resaltado" href="{{ path("home", {"_locale" : "es"}) }}">&nbsp;Español&nbsp;</a>&nbsp;&nbsp;<span>English</span>
         {% endif %}
     </div>
     {% if locale == 'es' %}    
     <p>
         <span class="resaltado">MYSEXYMIAMI.COM</span>  es exclusivamente un Directorio de avisos foto-clasificados Online.
         Todo el contenido de los avisos foto-clasificados es de única y exclusiva responsabilidad de los anunciantes y de ninguna manera la empresa conoce, participa o interfiere en forma o manera alguna en las actividades que estos realizan. 
-        La empresa no se hace responsable por la veracidad, fidelidad, o legalidad del contenido de los avisos foto-clasificados. <span class="resaltado">MYSEXYMIAMI.COM</span>  es para uso exclusivo de personas mayores de edad.  UK Office: 48 High Street-Haslemere-Surrey-GU27 2LA. UK. 
-        Todos los derechos reservados 2012.
+        La empresa no se hace responsable por la veracidad, fidelidad, o legalidad del contenido de los avisos foto-clasificados. <span class="resaltado">MYSEXYMIAMI.COM</span>  es para uso exclusivo de personas mayores de edad.  UK Office: 48 High Street-Haslemere-Surrey-GU27 2LA. UK. Todos los derechos reservados 2012.
     </p>
     {% elseif locale == 'en' %}
     <p>

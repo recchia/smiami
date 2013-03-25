@@ -2,10 +2,12 @@
 
 {% block header %}
 <div id="header">
-    <img src="{{ asset('images/bocai_registro.png') }}" />  
+    <img src="{{ asset('images/bocai_ponerad.png') }}" />  
     <img src="{{ asset('images/mysexymiami3.png') }}" />
     <img src="{{ asset('images/sm.png') }}" />
-    <img src="{{ asset('images/bocad_registro.png') }}" />
+    <img src="{{ asset('images/bocad_ponerad.png') }}" />
+<meta name="google-translate-customization" content="2ee800eb1ec6d34-c21772d3924fdf4c-g36f4124f74b59449-13"></meta>
+
 </div>
 <div id="slogan" style="background-color:#9100B2;">
     <p>
@@ -40,9 +42,80 @@
     </ul>
 
     {{ form_rest(form) }}
-    <p>
-        <button type="submit">Guardar</button>
-    </p>
+
+ 
+<form name="form" method="post" action="https://sale.alliedwallet.com/quickpay.aspx">
+
+<input name="MerchantID" type="hidden" value="2cd4bf35-1325-4d66-b448-17b1e13c5a7b" />
+
+<input name="SiteID" type="hidden" value="b8e5bcda-0036-4196-a3e2-14a1b87ff11e" />
+
+<input name="AmountTotal" type="hidden" value="50.00" />
+
+<input name="CurrencyID" type="hidden" value="USD" />
+
+<input name="AmountShipping" type="hidden" value="0" />
+
+<input name="ShippingRequired" type="hidden" value="1" />
+
+<input name="ItemName[0]" type="hidden" value="2 Week" />
+
+<input name="ItemQuantity[0]" type="hidden" value="1" />
+
+<input name="ItemAmount[0]" type="hidden" value="50.00" />
+
+<input name="ItemDesc[0]" type="hidden" value="2 Week Package" />
+
+<input name="NoMembership" type="hidden" value="1" />
+
+<input name="ReturnURL" type="hidden" value="http://www.mysexymiami.com/success.html" />
+
+<input name="confirmURL" type="hidden" value="http://www.mysexymiami.com/post.php" />
+
+<input name="DeclineReturnURL" type="hidden" value="http://www.mysexymiami.com/decline.html" />
+
+<input name="MerchantReference" type="hidden" value="done" />
+
+<input type="submit" value=" Pagar Tu Ad por 2 Semanas">
+
+</form>
+
+<form name="form" method="post" action="https://sale.alliedwallet.com/quickpay.aspx">
+
+<input name="MerchantID" type="hidden" value="2cd4bf35-1325-4d66-b448-17b1e13c5a7b" />
+
+<input name="SiteID" type="hidden" value="b8e5bcda-0036-4196-a3e2-14a1b87ff11e" />
+
+<input name="AmountTotal" type="hidden" value="100.00" />
+
+<input name="CurrencyID" type="hidden" value="USD" />
+
+<input name="AmountShipping" type="hidden" value="0" />
+
+<input name="ShippingRequired" type="hidden" value="1" />
+
+<input name="ItemName[0]" type="hidden" value="4 Week" />
+
+<input name="ItemQuantity[0]" type="hidden" value="1" />
+
+<input name="ItemAmount[0]" type="hidden" value="100.00" />
+
+<input name="ItemDesc[0]" type="hidden" value="4 Week Package" />
+
+<input name="NoMembership" type="hidden" value="1" />
+
+<input name="ReturnURL" type="hidden" value="http://www.mysexymiami.com/success.html" />
+
+<input name="confirmURL" type="hidden" value="http://www.mysexymiami.com/post.php" />
+
+<input name="DeclineReturnURL" type="hidden" value="http://www.mysexymiami.com/decline.html" />
+
+<input name="MerchantReference" type="hidden" value="done" />
+
+<input type="submit" value=" Pagar Tu Ad por 4 Semanas">
+
+</form>
+
 </form>
 </div>
 {% endblock %}

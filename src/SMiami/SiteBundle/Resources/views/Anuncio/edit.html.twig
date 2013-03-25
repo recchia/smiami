@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="fos_bundle">
-<h1>Editar Anuncio</h1>
+<p align="center"><span class="titulocomentarios">Editando Tu Anuncio</span></p>
 
 <form action="{{ path('anuncio_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_errors(edit_form) }}
@@ -11,22 +11,22 @@
     {{ form_row(edit_form.descripcion) }}
     {{ form_row(edit_form.seccion) }}
     {{ form_row(edit_form.email) }}
-    {{ form_row(edit_form.publicar_email) }}
     {{ form_row(edit_form.telefono) }}
-    {{ form_row(edit_form.condado) }}
-    {{ form_row(edit_form.ciudad) }}
-    {{ form_row(edit_form.pago) }}
-    <h3>Imagenes</h3>
+    {{ form_row(form.condado) }}
+    {{ form_row(form.ciudad) }}
+    {{ form_row(form.pago) }}
+     <h3>Imagenes</h3>
     <ul class="imagenes">
         {% for img in edit_form.imagenes %}
             <li>{{ form_row(img.imagen) }}</li>
         {% endfor %}
     </ul>
-
-    {{ form_rest(edit_form) }}
-    <p>
-        <button type="submit">Editar</button>
-    </p>
+   
+    <li>
+        <form action="{{ path('anuncio_edit', { 'id': entity.id }) }}" method="post">
+            {{ form_rest(edit_form) }}
+            <button type="submit">Editar</button>
+    </li>
 </form>
 
 <ul class="record_actions">
@@ -35,7 +35,8 @@
             Volver al Perfil
         </a>
     </li>
-    <li>
+  
+     <li>
         <form action="{{ path('anuncio_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Eliminar</button>
