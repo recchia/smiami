@@ -81,6 +81,12 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - { name: twig.extension }
+    
+    smiami.site.admin.anuncio:
+        class: SMiami\SiteBundle\Admin\AnuncioAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Anuncios, label: Anuncios }
+        arguments: [ null, SMiami\SiteBundle\Entity\Anuncio, null ]
             
 sonata_block:
     default_contexts: [cms]
