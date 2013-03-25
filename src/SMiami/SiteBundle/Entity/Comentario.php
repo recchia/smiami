@@ -40,7 +40,7 @@ class Comentario
     /**
      * @var Usuario $autor
      *
-     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="comentarios")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="comentarios")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
     private $autor;

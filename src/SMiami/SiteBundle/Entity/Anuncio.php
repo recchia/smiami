@@ -89,7 +89,7 @@ class Anuncio
     private $pago;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="anuncio")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="anuncios")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
     private $usuario;
