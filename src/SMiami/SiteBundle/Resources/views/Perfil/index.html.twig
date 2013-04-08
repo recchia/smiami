@@ -35,5 +35,38 @@
         {% endfor %}
         </tbody>
     </table>
+    
+    <h3>Mis Comentarios</h3>
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Anuncio</th>
+                <th>Fecha</th>
+                <th>Comentario</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comentario in comentarios %}
+            <tr>
+                <td>{{ comentario.anuncio }}</td>
+                <td>{{ comentario.fecha|date('m-d-y') }}</td>
+                <td>{{ comentario.comentario }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('comentario_show', { 'id': comentario.id }) }}">ver</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('comentario_edit', { 'id': comentario.id }) }}">editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    
 </div>
 {% endblock %}

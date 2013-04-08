@@ -491,3 +491,18 @@ form label {
     color: #9100B2;
     font-weight: bold;
 }
+
+.records_list {
+    width:100%;
+    color: #333;
+    border-collapse:collapse;
+    border: 1px solid #FF1A96;
+}
+
+.records_list th {
+    color: #BF00BF;
+}
+
+.records_list tbody tr:nth-child(odd) {
+   background-color: #DDD;
+}

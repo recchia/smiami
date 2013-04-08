@@ -309,10 +309,10 @@ class Anuncio
     /**
      * Set usuario
      *
-     * @param SMiami\SiteBundle\Entity\Usuario $usuario
+     * @param \Application\Sonata\UserBundle\Entity\User $usuario
      * @return Anuncio
      */
-    public function setUsuario(\SMiami\SiteBundle\Entity\Usuario $usuario = null)
+    public function setUsuario(\Application\Sonata\UserBundle\Entity\User $usuario = null)
     {
         $this->usuario = $usuario;
     
@@ -322,7 +322,7 @@ class Anuncio
     /**
      * Get usuario
      *
-     * @return SMiami\SiteBundle\Entity\Usuario 
+     * @return \Application\Sonata\UserBundle\Entity\User 
      */
     public function getUsuario()
     {

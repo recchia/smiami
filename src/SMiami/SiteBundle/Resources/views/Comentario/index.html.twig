@@ -32,10 +32,10 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Autor</th>
-            <th>Comentario Para</th>
-            <th>Comentario</th>
-            <th>Fecha</th>
+            <th>AUTOR</th>
+            <th>FECHA</th>
+            <th>ANUNCIO</th>
+            <th>COMENTARIO</th>
         </tr>
     </thead>
     <tbody>
@@ -43,9 +43,9 @@
         <tr>
             <td><a href="{{ path('comentario_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.autor }}</td>
-            <td>{{ entity.anuncio }}</td>
-            <td>{{ entity.comentario }}</td>
             <td>{% if entity.fecha %}{{ entity.fecha|date('m-d-y') }}{% endif %}</td>
+            <td>{{ entity.anuncio }}</td>
+            <td style="text-align: justify">{{ entity.comentario }}</td>
          </tr>
     {% endfor %}
     </tbody>

@@ -32,7 +32,8 @@ class PerfilController extends Controller {
         
         $em = $this->getDoctrine()->getEntityManager();
         $anuncios = $em->getRepository("SiteBundle:Anuncio")->getAnunciosByUser($this->get("security.context")->getToken()->getUser()->getId());
-        return array('anuncios' => $anuncios);
+        $comentarios = $em->getRepository("SiteBundle:Comentario")->getComentariosByUser($this->get("security.context")->getToken()->getUser()->getId());
+        return array('anuncios' => $anuncios, 'comentarios' => $comentarios);
     }
 }
 

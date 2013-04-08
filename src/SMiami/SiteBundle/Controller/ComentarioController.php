@@ -192,7 +192,7 @@ class ComentarioController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('comentario'));
+        return $this->redirect($this->generateUrl('miperfil'));
     }
 
     private function createDeleteForm($id)

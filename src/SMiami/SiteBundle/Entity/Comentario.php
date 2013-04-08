@@ -165,10 +165,10 @@ class Comentario
     /**
      * Set autor
      *
-     * @param SMiami\SiteBundle\Entity\Usuario $autor
+     * @param Application\Sonata\UserBundle\Entity\User $autor
      * @return Comentario
      */
-    public function setAutor(\SMiami\SiteBundle\Entity\Usuario $autor = null)
+    public function setAutor(\Application\Sonata\UserBundle\Entity\User $autor = null)
     {
         $this->autor = $autor;
     
@@ -178,7 +178,7 @@ class Comentario
     /**
      * Get autor
      *
-     * @return SMiami\SiteBundle\Entity\Usuario 
+     * @return Application\Sonata\UserBundle\Entity\User 
      */
     public function getAutor()
     {

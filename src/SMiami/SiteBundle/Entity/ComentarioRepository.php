@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class ComentarioRepository extends EntityRepository
 {
+    public function getComentariosByUser($id)
+    {
+        $em = $this->getEntityManager();
+        
+        $strSQL = "SELECT c.id, c.comentario, c.fecha, a.nombre AS anuncio FROM SiteBundle:Comentario c JOIN c.anuncio a WHERE c.autor = $id";
+        $consulta = $em->createQuery($strSQL);
+        
+        return $consulta->getResult();
+    }
 }
