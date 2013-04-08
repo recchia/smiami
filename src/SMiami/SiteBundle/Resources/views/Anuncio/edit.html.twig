@@ -11,10 +11,12 @@
     {{ form_row(edit_form.descripcion) }}
     {{ form_row(edit_form.seccion) }}
     {{ form_row(edit_form.email) }}
+    {{ form_row(edit_form.publicar_email) }}
     {{ form_row(edit_form.telefono) }}
-    {{ form_row(form.condado) }}
-    {{ form_row(form.ciudad) }}
-    {{ form_row(form.pago) }}
+    {{ form_row(edit_form.condado) }}
+    {{ form_row(edit_form.ciudad) }}
+    {{ form_row(edit_form.pago) }}
+    {{ form_rest(edit_form) }}
      <h3>Imagenes</h3>
     <ul class="imagenes">
         {% for img in edit_form.imagenes %}
@@ -23,9 +25,10 @@
     </ul>
    
     <li>
-        <form action="{{ path('anuncio_edit', { 'id': entity.id }) }}" method="post">
-            {{ form_rest(edit_form) }}
-            <button type="submit">Editar</button>
+    
+    <p>
+        <button type="submit">Editar</button>
+    </p>
     </li>
 </form>
 
