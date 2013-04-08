@@ -16,14 +16,20 @@
     {{ form_row(edit_form.condado) }}
     {{ form_row(edit_form.ciudad) }}
     {{ form_row(edit_form.pago) }}
-    {{ form_rest(edit_form) }}
      <h3>Imagenes</h3>
     <ul class="imagenes">
         {% for img in edit_form.imagenes %}
-            <li>{{ form_row(img.imagen) }}</li>
+            <li>
+            {{ form_label(img.imagen) }}
+            {{ form_errors(img.imagen) }}
+            {{ form_widget(img.imagen) }}
+            {{ form_label(img.portada) }}
+            {{ form_errors(img.portada) }}
+            {{ form_widget(img.portada) }}
+            </li>
         {% endfor %}
     </ul>
-   
+    {{ form_rest(edit_form) }}
     <li>
     
     <p>
