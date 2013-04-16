@@ -1,0 +1,72 @@
+{% extends "::layout.html.twig" %}
+
+{% block header %}
+<div id="header">
+    <img src="{{ asset('images/bocai_ponerad.png') }}" />  
+    <img src="{{ asset('images/mysexymiami3.png') }}" />
+    <img src="{{ asset('images/sm.png') }}" />
+    <img src="{{ asset('images/bocad_ponerad.png') }}" />
+
+</div>
+<div id="slogan" style="background-color:#9100B2;">
+    <p>
+    <a href="{{ path("anuncio_reglas") }}" alt="Poner un Ad" title="Poner un Ad"><div style="position:absolute; top:14%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" /></div></a>
+    SOY TU SECRETO ONLINE...
+    <a href="http://mibellivenezolana.blogspot.com/" target="_blank" alt="LEE AQUÍ; Blogs, Fantasías y algo más..." title="LEE AQUÍ; Blogs, Fantasías y algo más..."><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" /></div></a>
+    </p>
+</div>
+{% endblock %}
+
+{% block content %}
+    
+    <h2 class="titulocomentarios">Confirmación de datos para el pago del anuncio</h2>
+    <table id="detalle-anuncio" align="center" class="resaltado">
+    <caption>Su anuncio ha sido registrado pero no se publicara hasta realizar el pago</caption>
+    <tr>
+        <td>
+            <p><span class="detalle_titulo">Nombre:</span> {{ entity.nombre }}</p>
+            <p><span class="detalle_titulo">Edad:</span> {{ entity.edad }}</p>
+            <p><span class="detalle_titulo">Teléfono:</span> {{ entity.telefono }}</p>
+            <p><span class="detalle_titulo">Email:</span> {{ entity.email }}</p>
+            <p><span class="detalle_titulo">Descripción:</span> {{ entity.descripcion | nl2br }}</p>
+            <p><span class="detalle_titulo">Pago:</span> {{ entity.pago }}</p>
+        </td>
+    </tr>
+</table>
+ 
+<form name="form" method="post" action="https://sale.alliedwallet.com/quickpay.aspx">
+
+<input name="MerchantID" type="hidden" value="2cd4bf35-1325-4d66-b448-17b1e13c5a7b" />
+
+<input name="SiteID" type="hidden" value="b8e5bcda-0036-4196-a3e2-14a1b87ff11e" />
+
+<input name="AmountTotal" type="hidden" value="{{ entity.pago.precio }}" />
+
+<input name="CurrencyID" type="hidden" value="USD" />
+
+<input name="AmountShipping" type="hidden" value="0" />
+
+<input name="ShippingRequired" type="hidden" value="1" />
+
+<input name="ItemName[0]" type="hidden" value="{{ entity.pago.descripcion }}" />
+
+<input name="ItemQuantity[0]" type="hidden" value="1" />
+
+<input name="ItemAmount[0]" type="hidden" value="{{ entity.pago.precio }}" />
+
+<input name="ItemDesc[0]" type="hidden" value="2 Week Package" />
+
+<input name="NoMembership" type="hidden" value="1" />
+
+<input name="ReturnURL" type="hidden" value="{{ url("pago_exitoso") }}" />
+
+<input name="confirmURL" type="hidden" value="http://www.mysexymiami.com/post.php" />
+
+<input name="DeclineReturnURL" type="hidden" value="{{ url("pago_fallido") }}" />
+
+<input name="MerchantReference" type="hidden" value="done" />
+
+<input type="submit" value="Pagar Tu Ad">
+
+</form>
+{% endblock %}

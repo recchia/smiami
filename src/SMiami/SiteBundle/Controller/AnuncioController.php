@@ -47,7 +47,7 @@ class AnuncioController extends Controller
         $entity = $em->getRepository('SiteBundle:Anuncio')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Anuncio entity.');
+            throw $this->createNotFoundException('El anuncio solicitado no existe.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -104,7 +104,7 @@ class AnuncioController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('detalle_show', array('perfil' => $entity->getId())));
+            return $this->redirect($this->generateUrl('pago_anuncio', array('id' => $entity->getId())));
         }
 
         return array(
@@ -231,6 +231,47 @@ class AnuncioController extends Controller
         $imagenes = $em->getRepository('SiteBundle:Anuncio')->getImagenes($perfil);
         return array('anuncio' => $anuncio, 'imagenes' => $imagenes);
         
+    }
+    
+    /**
+     * Presenta el formulario para realizar el pago
+     * 
+     * @Route("/{id}/pago/", name="pago_anuncio")
+     * @Template()
+     */
+    public function pagoAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('SiteBundle:Anuncio')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('El anuncio solicitado no existe.');
+        }
+        
+        return array('entity' => $entity);
+    }
+    
+    /**
+     * Notifica que el pago se proceso
+     * 
+     * @Route("/success", name="pago_exitoso")
+     * @Template()
+     * 
+     */
+    public function successAction()
+    {
+        return array();
+    }
+    
+    /**
+     * Notifica que el paso fue fallido
+     * 
+     * @Route("/decline", name="pago_fallido")
+     */
+    public function declineAction()
+    {
+        return array();
     }
 }
 

@@ -89,6 +89,14 @@ class Anuncio
     private $pago;
     
     /**
+     *
+     * @var date
+     * 
+     * @ORM\Column(type="date")
+     */
+    private $fecha_vencimiento;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="anuncios")
      * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
      */
@@ -443,5 +451,28 @@ class Anuncio
     public function getComentarios()
     {
         return $this->comentarios;
+    }
+
+    /**
+     * Set fecha_vencimiento
+     *
+     * @param \DateTime $fechaVencimiento
+     * @return Anuncio
+     */
+    public function setFechaVencimiento($fechaVencimiento)
+    {
+        $this->fecha_vencimiento = $fechaVencimiento;
+    
+        return $this;
+    }
+
+    /**
+     * Get fecha_vencimiento
+     *
+     * @return \DateTime 
+     */
+    public function getFechaVencimiento()
+    {
+        return $this->fecha_vencimiento;
     }
 }
