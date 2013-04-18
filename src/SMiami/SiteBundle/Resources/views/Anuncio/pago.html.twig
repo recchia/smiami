@@ -54,17 +54,17 @@
 
 <input name="ItemAmount[0]" type="hidden" value="{{ entity.pago.precio }}" />
 
-<input name="ItemDesc[0]" type="hidden" value="2 Week Package" />
+<input name="ItemDesc[0]" type="hidden" value="Paquete de {{ entity.pago.descripcion }}" />
 
 <input name="NoMembership" type="hidden" value="1" />
 
 <input name="ReturnURL" type="hidden" value="{{ url("pago_exitoso") }}" />
 
-<input name="confirmURL" type="hidden" value="http://www.mysexymiami.com/post.php" />
+<input name="confirmURL" type="hidden" value="{{ url("pago_confirmacion") }}" />
 
 <input name="DeclineReturnURL" type="hidden" value="{{ url("pago_fallido") }}" />
 
-<input name="MerchantReference" type="hidden" value="done" />
+<input name="MerchantReference" type="hidden" value="{{ entity.id }}" />
 
 <input type="submit" value="Pagar Tu Ad">
 

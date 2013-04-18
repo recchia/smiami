@@ -87,6 +87,12 @@ services:
         tags:
           - { name: sonata.admin, manager_type: orm, group: Anuncios, label: Anuncios }
         arguments: [ null, SMiami\SiteBundle\Entity\Anuncio, null ]
+        
+    smiami.site.admin.pago:
+        class: SMiami\SiteBundle\Admin\PagoAdmin
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: Anuncios, label: Pago }
+        arguments: [ null, SMiami\SiteBundle\Entity\Pago, null ]
             
 sonata_block:
     default_contexts: [cms]

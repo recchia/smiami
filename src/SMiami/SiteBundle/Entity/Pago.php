@@ -27,6 +27,14 @@ class Pago
      * @ORM\Column(name="descripcion", type="string", length=60)
      */
     private $descripcion;
+    
+    /**
+     *
+     * @var int
+     * 
+     * @ORM\Column(type="integer", length=3)
+     */
+    private $dias;
 
     /**
      * @var decimal $precio
@@ -98,5 +106,28 @@ class Pago
      */
     public function __toString() {
         return $this->getDescripcion().' - '.$this->getPrecio().'$';
+    }
+
+    /**
+     * Set dias
+     *
+     * @param integer $dias
+     * @return Pago
+     */
+    public function setDias($dias)
+    {
+        $this->dias = $dias;
+    
+        return $this;
+    }
+
+    /**
+     * Get dias
+     *
+     * @return integer 
+     */
+    public function getDias()
+    {
+        return $this->dias;
     }
 }

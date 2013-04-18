@@ -1,0 +1,22 @@
+{% extends "::layout.html.twig" %}
+
+{% block header %}
+<div id="header">
+    <img src="{{ asset('images/bocai_ponerad.png') }}" />  
+    <img src="{{ asset('images/mysexymiami3.png') }}" />
+    <img src="{{ asset('images/sm.png') }}" />
+    <img src="{{ asset('images/bocad_ponerad.png') }}" />
+
+</div>
+<div id="slogan" style="background-color:#9100B2;">
+    <p>
+    <a href="{{ path("anuncio_reglas") }}" alt="Poner un Ad" title="Poner un Ad"><div style="position:absolute; top:14%; left:3%; "><img src="{{ asset('images/ponerunad1.png') }}" /></div></a>
+    SOY TU SECRETO ONLINE...
+    <a href="http://mibellivenezolana.blogspot.com/" target="_blank" alt="LEE AQUÍ; Blogs, Fantasías y algo más..." title="LEE AQUÍ; Blogs, Fantasías y algo más..."><div style="position:absolute; top:14%; left:88%; "><img src="{{ asset('images/bocas2.png') }}" /></div></a>
+    </p>
+</div>
+{% endblock %}
+
+{% block content %}
+<h2 class="titulocomentarios">Su transacción no ha sido realizada.</h2>
+{% endblock %}

@@ -90,11 +90,35 @@ class Anuncio
     
     /**
      *
+     * @var boolean
+     * 
+     * @ORM\Column(type="boolean")
+     */
+    private $pagado;
+    
+    /**
+     *
      * @var date
      * 
      * @ORM\Column(type="date")
      */
     private $fecha_vencimiento;
+    
+    /**
+     *
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=128)
+     */
+    private $pay_reference;
+    
+    /**
+     *
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=128)
+     */
+    private $transaction;
 
     /**
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="anuncios")
@@ -474,5 +498,74 @@ class Anuncio
     public function getFechaVencimiento()
     {
         return $this->fecha_vencimiento;
+    }
+
+    /**
+     * Set pagado
+     *
+     * @param boolean $pagado
+     * @return Anuncio
+     */
+    public function setPagado($pagado)
+    {
+        $this->pagado = $pagado;
+    
+        return $this;
+    }
+
+    /**
+     * Get pagado
+     *
+     * @return boolean 
+     */
+    public function getPagado()
+    {
+        return $this->pagado;
+    }
+
+    /**
+     * Set pay_reference
+     *
+     * @param string $payReference
+     * @return Anuncio
+     */
+    public function setPayReference($payReference)
+    {
+        $this->pay_reference = $payReference;
+    
+        return $this;
+    }
+
+    /**
+     * Get pay_reference
+     *
+     * @return string 
+     */
+    public function getPayReference()
+    {
+        return $this->pay_reference;
+    }
+
+    /**
+     * Set transaction
+     *
+     * @param string $transaction
+     * @return Anuncio
+     */
+    public function setTransaction($transaction)
+    {
+        $this->transaction = $transaction;
+    
+        return $this;
+    }
+
+    /**
+     * Get transaction
+     *
+     * @return string 
+     */
+    public function getTransaction()
+    {
+        return $this->transaction;
     }
 }

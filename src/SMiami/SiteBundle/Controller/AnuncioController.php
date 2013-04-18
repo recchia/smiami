@@ -273,5 +273,28 @@ class AnuncioController extends Controller
     {
         return array();
     }
+    
+    /**
+     * Acción para recibir confirmación de la transacción
+     * 
+     * @Route("/confirm", name="pago_confirmacion")
+     * @Template()
+     */
+    public function confirmAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository("SiteBundle:Anuncio")->find($request->request->get("MerchantReference"));
+        $days = $entity->getPago()->getDias();
+        $fecha = new \DateTime();
+        $fecha->add(new \DateInterval('P'.$days.'D'));
+        $entity->setPagado(true);
+        $entity->setFechaVencimiento($fecha);
+        $entity->setPayReference($request->request->get("PayReferenceID"));
+        $entity->setTransaction($request->request->get("TransactionID"));
+        $em->persist($entity);
+        $em->flush();
+        
+        return array();
+    }
 }
 
