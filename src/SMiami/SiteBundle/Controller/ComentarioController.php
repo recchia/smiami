@@ -18,7 +18,7 @@ use SMiami\SiteBundle\Form\ComentarioType;
 class ComentarioController extends Controller
 {
     /**
-     * Lists all Comentario entities.
+     * Lista todos los Comentarios públicos.
      *
      * @Route("/", name="comentario")
      * @Template()
@@ -27,7 +27,24 @@ class ComentarioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SiteBundle:Comentario')->findAll();
+        $entities = $em->getRepository('SiteBundle:Comentario')->getComentariosPublicos();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
+    /**
+     * Lista todos los Comentarios privados.
+     *
+     * @Route("/privados", name="comentarios_privados")
+     * @Template("SiteBundle:Comentario:index.html.twig")
+     */
+    public function privadosAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('SiteBundle:Comentario')->getComentariosPrivados();
 
         return array(
             'entities' => $entities,
@@ -92,6 +109,9 @@ class ComentarioController extends Controller
         $em = $this->getDoctrine()->getManager();
         $autor = $this->get("security.context")->getToken()->getUser();
         $entity  = new Comentario();
+        if ($autor->hasRole('ROLE_ANUNCIO')) {
+            $entity->setPrivado(true);
+        }
         $entity->setAutor($autor);
         $form = $this->createForm(new ComentarioType(), $entity);
         $form->bind($request);

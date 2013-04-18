@@ -23,7 +23,13 @@
 <div id="contenido">
 <div id="reglas" style="color: #FF2AD7;">
 
-<p align="center"><span class="titulocomentarios">Comentarios</span></p>
+    <p align="center">
+        <span class="titulocomentarios">Comentarios</span>
+        {% if is_granted('ROLE_ANUNCIO') %}
+        <a class="resaltado" href="{{ path("comentarios_privados") }}">Ver Privados</a>
+        <a class="resaltado" href="{{ path("comentario") }}">Ver Públicos</a>
+        {% endif %}
+    </p>
 
 </div>
 </div>

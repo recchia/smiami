@@ -58,6 +58,14 @@ class Comentario
      * @ORM\Column(name="fecha", type="datetime")
      */
     private $fecha;
+    
+    /**
+     *
+     * @var boolean
+     * 
+     * @ORM\Column(type="boolean", options={"default":false})
+     */
+    private $privado;
 
 
     /**
@@ -191,5 +199,28 @@ class Comentario
     public function fechaActual()
     {
         $this->fecha = new \DateTime();
+    }
+
+    /**
+     * Set privado
+     *
+     * @param boolean $privado
+     * @return Comentario
+     */
+    public function setPrivado($privado)
+    {
+        $this->privado = $privado;
+    
+        return $this;
+    }
+
+    /**
+     * Get privado
+     *
+     * @return boolean 
+     */
+    public function getPrivado()
+    {
+        return $this->privado;
     }
 }

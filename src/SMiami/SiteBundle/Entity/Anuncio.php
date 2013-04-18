@@ -92,7 +92,7 @@ class Anuncio
      *
      * @var boolean
      * 
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":false})
      */
     private $pagado;
     
@@ -100,7 +100,7 @@ class Anuncio
      *
      * @var date
      * 
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $fecha_vencimiento;
     
@@ -108,7 +108,7 @@ class Anuncio
      *
      * @var string
      * 
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, nullable=true)
      */
     private $pay_reference;
     
@@ -116,7 +116,7 @@ class Anuncio
      *
      * @var string
      * 
-     * @ORM\Column(type="string", length=128)
+     * @ORM\Column(type="string", length=128, nullable=true)
      */
     private $transaction;
 
