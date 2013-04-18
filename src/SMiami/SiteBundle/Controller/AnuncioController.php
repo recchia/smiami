@@ -291,7 +291,10 @@ class AnuncioController extends Controller
         $entity->setFechaVencimiento($fecha);
         $entity->setPayReference($request->request->get("PayReferenceID"));
         $entity->setTransaction($request->request->get("TransactionID"));
+        $usuario = $entity->getUsuario();
+        $usuario->addRole('ROLE_ANUNCIO');
         $em->persist($entity);
+        $em->persist($usuario);
         $em->flush();
         
         return array();
